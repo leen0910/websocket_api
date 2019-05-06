@@ -1,5 +1,22 @@
-[data]
+[7]
 info_read={
     "action": "device.info.read",
+    "data": {}
+    }
+
+[5]
+control={
+    "action": "device.control",
+    "data":
+    {
+        "password": "123456",
+        "username": "管理员",
+        "user_ip": "192.168.1.112"
+    }
+    }
+
+[6]
+release={
+    "action": "device.release",
     "data": {}
     }

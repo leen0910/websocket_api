@@ -5,11 +5,12 @@ import unittest
 from common import read_info
 from common import read_message
 from common import check_action as c
-import json
+
 
 
 
 class websocket_request(unittest.TestCase):
+    """7. 查询设备信息 """
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -23,10 +24,12 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test01_info_read(self):
+    def test_info_read(self):
+        """7.1. 发送数据 """
         rm=read_message.ReadMessage()
-        data=rm.get_info_read()
+        data=rm.get_data("7","info_read")   # 获取device.info.read命令发送数据包。
         ws=self.ws
+        print("发送“查询设备信息”数据：")
         c.checkAction(ws,data)
         # data=json.dumps(message)
         # try:
