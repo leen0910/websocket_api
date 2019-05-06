@@ -1,0 +1,5 @@
+[data]
+info_read={
+    "action": "device.info.read",
+    "data": {}
+    }
