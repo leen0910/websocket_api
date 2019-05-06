@@ -30,13 +30,12 @@ class websocket_request(unittest.TestCase):
          """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
-        ws=self.ws
+        url=self.ws
         print("发送“控制设备”数据：")
-        c.checkAction(ws,data_c)
+        c.checkAction(url,data_c)
         data_r=rm.get_data("6","release")
-        ws=self.ws
         print("发送“释放设备”数据：")
-        c.checkAction(ws,data_r)
+        c.checkAction(url,data_r)
 
 
     def tearDown(self):

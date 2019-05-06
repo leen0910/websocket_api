@@ -20,3 +20,20 @@ release={
     "action": "device.release",
     "data": {}
     }
+
+[8]
+config={
+    "action": "device.config",
+    "data": {
+        "device_name" : "device2",
+        "user_name" : "qiqi",
+        "group" : "group1",
+        "password" : "123asd",
+        "model" : "QX-PRODUCE-4060",
+        "config" : "../conf/",
+        "lua" : "../scripts/",
+        "log" : "../log/",
+        "update" : "../update/",
+        "authorization_time" : "2018-01-01 00:00:00"
+    }
+    }
