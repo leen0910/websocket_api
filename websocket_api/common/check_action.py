@@ -8,7 +8,7 @@ def checkAction(ws,data):
     action=data_json["action"]
     try:
         ws.send(data)
-        for i in range(1,10):
+        for i in range(1,50):
             t=ws.recv()
             t=json.loads(t)
             if t["action"]==action:
@@ -19,9 +19,9 @@ def checkAction(ws,data):
                 else:
                     print("%s返回数据失败。"%action)
                 break
-            else:
-                print("返回数据错误！")
-                print(t)
+        else:
+            print("返回数据错误！")
+            print(t)
     except Exception as e:
         print("%s命令发送失败：%s"%(action,e))
         pass

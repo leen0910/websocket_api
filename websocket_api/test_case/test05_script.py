@@ -11,7 +11,7 @@ import time
 
 
 class websocket_request(unittest.TestCase):
-    """3. 开始初始化"""
+    """1. 脚本运行 & 2. 修改运行速度 & 4. 运行模式切换"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -25,8 +25,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_initialize(self):
-        """3. 开始初始化/3.1. 发送数据 """
+    def test_run_script(self):
+        """1. 脚本运行/1.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
