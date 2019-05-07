@@ -25,7 +25,7 @@ class websocket_request(unittest.TestCase):
             pass
 
     def test_info_read(self):
-        """7.1. 发送数据 """
+        """7. 查询设备信息/7.1. 发送数据 """
         rm=read_message.ReadMessage()
         data=rm.get_data("7","info_read")   # 获取device.info.read命令发送数据包。
         ws=self.ws

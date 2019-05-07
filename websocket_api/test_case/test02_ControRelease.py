@@ -31,10 +31,10 @@ class websocket_request(unittest.TestCase):
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
-        print("发送“控制设备”数据：")
+        print("step 1、控制设备：")
         c.checkAction(url,data_c)
         data_r=rm.get_data("6","release")
-        print("发送“释放设备”数据：")
+        print("step 2、释放设备：")
         c.checkAction(url,data_r)
 
 

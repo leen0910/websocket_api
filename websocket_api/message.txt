@@ -37,3 +37,9 @@ config={
         "authorization_time" : "2018-01-01 00:00:00"
     }
     }
+
+[3]
+initialize={
+    "action" : "device.initialize",
+    "data" : {}
+    }

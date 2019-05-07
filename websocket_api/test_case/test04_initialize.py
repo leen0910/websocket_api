@@ -10,7 +10,7 @@ from common import check_action as c
 
 
 class websocket_request(unittest.TestCase):
-    """8. 修改设备信息"""
+    """3. 开始初始化"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -24,15 +24,15 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_config(self):
-        """8. 修改设备信息/8.1. 发送数据 """
+    def test_initialize(self):
+        """3. 开始初始化/3.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
         print("step 1、控制设备：")
         c.checkAction(url,data_c)
-        data=rm.get_data("8","config")
-        print("step 2、修改设备信息：")
+        data=rm.get_data("3","initialize")
+        print("step 2、初始化：")
         c.checkAction(url,data)
         data_r=rm.get_data("6","release")
         print("step 3、释放设备：")

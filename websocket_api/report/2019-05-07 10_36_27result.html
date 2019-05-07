@@ -194,9 +194,9 @@ function showOutput(id, name) {
 
 <div class='page-header'>
 <h1>websocket接口自动化测试报告</h1>
-<p class='attribute'><strong>开始时间:</strong> 2019-05-06 15:44:47</p>
-<p class='attribute'><strong>运行时长:</strong> 0:00:00.196847</p>
-<p class='attribute'><strong>状态:</strong> 通过 3</p>
+<p class='attribute'><strong>开始时间:</strong> 2019-05-07 10:36:27</p>
+<p class='attribute'><strong>运行时长:</strong> 0:00:00.301490</p>
+<p class='attribute'><strong>状态:</strong> 通过 4</p>
 
 </div>
 <p class='description'>用例执行情况</p>
@@ -290,11 +290,11 @@ device.info.read返回数据成功。
         <pre>
         
 pt2.1: 服务：ws://192.168.1.100:9001连接成功!
-发送“控制设备”数据：
+step 1、控制设备：
 返回action：device.control的数据：
 {'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
 device.control返回数据失败。
-发送“释放设备”数据：
+step 2、释放设备：
 返回action：device.release的数据：
 {'action': 'device.release', 'data': 'device has been released', 'success': True}
 device.release返回数据成功。
@@ -332,15 +332,61 @@ device.release返回数据成功。
         <pre>
         
 pt3.1: 服务：ws://192.168.1.100:9001连接成功!
-发送“控制设备”数据：
+step 1、控制设备：
 返回action：device.control的数据：
 {'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
 device.control返回数据失败。
-发送“修改设备信息”数据：
+step 2、修改设备信息：
 返回action：device.config的数据：
 {'action': 'device.config', 'data': 'device config infomation modify successfully !', 'success': True}
 device.config返回数据成功。
-发送“释放设备”数据：
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test04_initialize.websocket_request: 3. 开始初始化</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">详情</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_initialize: 3. 开始初始化/3.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        通过</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 服务：ws://192.168.1.100:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、初始化：
+返回action：device.initialize的数据：
+{'action': 'device.initialize', 'data': 'device initialize success', 'success': True}
+device.initialize返回数据成功。
+step 3、释放设备：
 返回action：device.release的数据：
 {'action': 'device.release', 'data': 'device has been released', 'success': True}
 device.release返回数据成功。
@@ -355,8 +401,8 @@ device.release返回数据成功。
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>3</td>
-    <td>3</td>
+    <td>4</td>
+    <td>4</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
