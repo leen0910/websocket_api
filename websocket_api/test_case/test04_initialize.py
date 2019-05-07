@@ -5,6 +5,7 @@ import unittest
 from common import read_info
 from common import read_message
 from common import check_action as c
+import time
 
 
 
@@ -31,9 +32,13 @@ class websocket_request(unittest.TestCase):
         url=self.ws
         print("step 1、控制设备：")
         c.checkAction(url,data_c)
+        time.sleep(1)
+
         data=rm.get_data("3","initialize")
         print("step 2、初始化：")
         c.checkAction(url,data)
+        time.sleep(3)
+
         data_r=rm.get_data("6","release")
         print("step 3、释放设备：")
         c.checkAction(url,data_r)

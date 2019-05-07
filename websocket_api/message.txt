@@ -43,3 +43,75 @@ initialize={
     "action" : "device.initialize",
     "data" : {}
     }
+
+[1]
+run_script_start={
+    "action" : "device.run.script",
+    "data" :
+    {
+        "script_name" : "move.lua",
+        "cmd" : "start"
+    }
+    }
+
+run_script_pause={
+    "action" : "device.run.script",
+    "data" :
+    {
+        "script_name" : "move.lua",
+        "cmd" : "pause"
+    }
+    }
+
+run_script_continue={
+    "action" : "device.run.script",
+    "data" :
+    {
+        "script_name" : "move.lua",
+        "cmd" : "continue"
+    }
+    }
+
+run_script_stop={
+    "action" : "device.run.script",
+    "data" :
+    {
+        "script_name" : "move.lua",
+        "cmd" : "stop"
+    }
+    }
+
+
+[2]
+run_velocity={
+    "action" : "device.run.velocity",
+    "data":
+    {
+        "velocity":50
+    }
+    }
+
+[4]
+move_mode_script={
+    "action" : "device.move.mode",
+    "data":
+    {
+        "mode" : "script"
+    }
+    }
+
+move_mode_teach={
+    "action" : "device.move.mode",
+    "data":
+    {
+        "mode" : "teach"
+    }
+    }
+
+move_mode_drag={
+    "action" : "device.move.mode",
+    "data":
+    {
+        "mode" : "drag"
+    }
+    }
