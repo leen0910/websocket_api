@@ -54,6 +54,15 @@ run_script_start={
     }
     }
 
+run_script_start_test={
+    "action" : "device.run.script",
+    "data" :
+    {
+        "script_name" : "test.lua",
+        "cmd" : "start"
+    }
+    }
+
 run_script_pause={
     "action" : "device.run.script",
     "data" :
@@ -141,4 +150,30 @@ clear_all_error={
 script_query={
     "action": "device.script.query",
     "data": {}
+    }
+
+[11]
+file_receive={
+    "action" : "device.file.receive",
+    "data" :
+    {
+        "type":"script",
+        "file_name":"test.lua",
+        "md5":"",
+        "total":1,
+        "index":1,
+        "content":"LS0geyJtb3ZlX3AycF9wb3NpdCIsIG1vdmVfcDJwX3Bvc2l0fSwKLS0geyJtb3ZlX2xpbmVfcG9zZSIsIG1vdmVfbGluZV9wb3NlfSwKLS0geyJtb3ZlX2FyY19wb3NlIiwgbW92ZV9hcmNfcG9zZX0sCi0tIHsid2FpdF9tb3ZlX2RvbmUiLCB3YWl0X21vdmVfZG9uZX0sCi0tIHsic2V0X2RlZmF1bHRfc2NyaXB0Iiwgc2V0X2RlZmF1bHRfc2NyaXB0fSwKLS0geyJzZXRfZGVsYXlfc2VjIiwgc2V0X2RlbGF5X3NlY30sCgotLSDlhbPoioLlnZDmoIcKcG9zZV94PTI1MApsZW5ndGg9MTcuNjc3NjY5NTMKdmVsPTEwMDsKYmxlbmQ9MDsKCnBvc2UxPXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPS0xNTAsIFsieiJdID0gLTEwMCxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZW0xPXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPS0xMjUtbGVuZ3RoLCBbInoiXSA9IC0xMDArbGVuZ3RoLFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQpwb3NlMj17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0tMTUwKzI1LCBbInoiXSA9IC03NSxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZTM9e1sieCJdID0gcG9zZV94LCBbInkiXSA9MTUwLTI1LCBbInoiXSA9IC03NSxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZW0yPXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPTEyNStsZW5ndGgsIFsieiJdID0gLTEwMCtsZW5ndGgsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9CnBvc2U0PXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPTE1MCwgWyJ6Il0gPSAtMTAwLFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQpwb3NldDE9e1sieCJdID0gcG9zZV94LCBbInkiXSA9LTUwLCBbInoiXSA9IC0xMDAsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9CnBvc2V0Mj17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0tNTArbGVuZ3RoLCBbInoiXSA9IC0xMDArbGVuZ3RoLFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQpwb3NldDM9e1sieCJdID0gcG9zZV94KzAuMDAxLCBbInkiXSA9MCwgWyJ6Il0gPSAtNzUsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9Cgpwb3NpdDE9e1siajEiXT0xLFsiajIiXT0tMSxbImozIl09MCxbImo0Il09MCxbImo1Il09MCxbImo2Il09MH0Kcm9ib3QubW92ZV9wMnBfcG9zaXQocG9zaXQxLHZlbCxibGVuZCkKcm9ib3QubW92ZV9saW5lX3Bvc2UocG9zZTEsdmVsLGJsZW5kKQp3aGlsZSgxKQpkbwoJcm9ib3QubW92ZV9hcmNfcG9zZShwb3NlbTEscG9zZTIsdmVsLGJsZW5kKQoJcm9ib3QubW92ZV9saW5lX3Bvc2UocG9zZTMsdmVsLGJsZW5kKQoJcm9ib3QubW92ZV9hcmNfcG9zZShwb3NlbTIscG9zZTQsdmVsLGJsZW5kKQoKCXJvYm90Lm1vdmVfYXJjX3Bvc2UocG9zZW0yLHBvc2UzLHZlbCxibGVuZCkKCXJvYm90Lm1vdmVfbGluZV9wb3NlKHBvc2UyLHZlbCxibGVuZCkKCXJvYm90Lm1vdmVfYXJjX3Bvc2UocG9zZW0xLHBvc2UxLHZlbCxibGVuZCkKZW5k"
+    }
+    }
+
+
+[12]
+file_send={
+    "action" : "device.file.send",
+    "data" :
+    {
+        "type" : "script",
+        "file_name" : "move.lua",
+        "index" : 1
+    }
     }

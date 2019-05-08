@@ -11,7 +11,7 @@ import time
 
 
 class websocket_request(unittest.TestCase):
-    """10. 查询已安装脚本"""
+    """11. 控制器接收文件"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -25,8 +25,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_script_query(self):
-        """10. 查询已安装脚本/10.1. 发送数据 """
+    def test_file_receive(self):
+        """11. 控制器接收文件/11.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -34,23 +34,32 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_script_query=rm.get_data("10","script_query")
-        print("step 2、查询已安装脚本：")
-        t=c.checkAction(url,data_script_query)
+        data_file_receive=rm.get_data("11","file_receive")
+        print("step 2、向设备写入文件test.lua：")
+        c.checkAction(url,data_file_receive)
         time.sleep(2)
 
-        print("step 3、准备列出已安装脚本名称：")
-        lenth=len(t["data"])
-        if lenth != 0:
-            print("列出已安装脚本名称：")
-            for i in range(0,lenth):
-                print(t["data"][i]["name"])
-        else:
-            print("查询已安装脚本为空！")
+        data_initialize=rm.get_data("3","initialize")
+        print("step 3、初始化：")
+        c.checkAction(url,data_initialize)
+        time.sleep(8)
 
+        data_mode=rm.get_data("4","move_mode_script")
+        print("step 4、切换为脚本mode：")
+        c.checkAction(url,data_mode)
+        time.sleep(1)
+
+        data_script_start=rm.get_data("1","run_script_start_test")
+        print("step 5、运行step 2写入的脚本：test.lua：")
+        c.checkAction(url,data_script_start)
+        time.sleep(5)
+
+        data_script_stop=rm.get_data("1","run_script_stop")
+        print("step 6、停止脚本运行：")
+        c.checkAction(url,data_script_stop)
 
         data_r=rm.get_data("6","release")
-        print("step 4、释放设备：")
+        print("step 7、释放设备：")
         c.checkAction(url,data_r)
 
 

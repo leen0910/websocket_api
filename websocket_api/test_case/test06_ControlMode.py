@@ -25,7 +25,7 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_run_script(self):
+    def test_control_mode(self):
         """9.1切换debug/user模式 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")

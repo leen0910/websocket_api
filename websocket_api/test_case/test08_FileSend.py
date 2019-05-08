@@ -11,7 +11,7 @@ import time
 
 
 class websocket_request(unittest.TestCase):
-    """10. 查询已安装脚本"""
+    """12. 控制器发送文件"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -25,8 +25,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_script_query(self):
-        """10. 查询已安装脚本/10.1. 发送数据 """
+    def test_file_send(self):
+        """12. 控制器发送文件/12.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -34,23 +34,13 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_script_query=rm.get_data("10","script_query")
-        print("step 2、查询已安装脚本：")
-        t=c.checkAction(url,data_script_query)
-        time.sleep(2)
-
-        print("step 3、准备列出已安装脚本名称：")
-        lenth=len(t["data"])
-        if lenth != 0:
-            print("列出已安装脚本名称：")
-            for i in range(0,lenth):
-                print(t["data"][i]["name"])
-        else:
-            print("查询已安装脚本为空！")
-
+        data_file_send=rm.get_data("12","file_send")
+        print("step 2、从设备读取文件move.lua：")
+        c.checkAction(url,data_file_send)
+        time.sleep(1)
 
         data_r=rm.get_data("6","release")
-        print("step 4、释放设备：")
+        print("step 3、释放设备：")
         c.checkAction(url,data_r)
 
 
