@@ -177,3 +177,12 @@ file_send={
         "index" : 1
     }
     }
+
+[13]
+script_delete={
+    "action" : "device.script.delete",
+    "data" :
+    {
+        "name" : "test.lua"
+    }
+    }
