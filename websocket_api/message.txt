@@ -115,3 +115,30 @@ move_mode_drag={
         "mode" : "drag"
     }
     }
+
+[9]
+control_mode_debug={
+    "action": "device.control.mode",
+    "data": {
+        "mode":"debug"
+    }
+    }
+
+control_mode_user={
+    "action": "device.control.mode",
+    "data": {
+        "mode":"user"
+    }
+    }
+
+[clear]
+clear_all_error={
+  "action": "device.clear.all.error",
+  "data": {}
+  }
+
+[10]
+script_query={
+    "action": "device.script.query",
+    "data": {}
+    }

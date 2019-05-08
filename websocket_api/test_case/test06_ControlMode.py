@@ -5,12 +5,13 @@ import unittest
 from common import read_info
 from common import read_message
 from common import check_action as c
+import time
 
 
 
 
 class websocket_request(unittest.TestCase):
-    """5. 控制设备 & 6. 释放设备 """
+    """9. 操作模式切换"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -24,17 +25,37 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_controlrelease(self):
-        """5. 控制设备/5.1. 发送数据
-           6. 释放设备/6.1. 发送数据
-         """
+    def test_run_script(self):
+        """9.1切换debug/user模式 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
         print("step 1、控制设备：")
         c.checkAction(url,data_c)
+        time.sleep(1)
+
+        data_mode_debug=rm.get_data("9","control_mode_debug")
+        print("step 2、切换为debug模式：")
+        c.checkAction(url,data_mode_debug)
+        time.sleep(1)
+
+        data_mode_user=rm.get_data("9","control_mode_user")
+        print("step 3、切换为user模式：")
+        c.checkAction(url,data_mode_user)
+        time.sleep(1)
+
+        data_clear_error=rm.get_data("clear","clear_all_error")
+        print("step 4、清除错误：")
+        c.checkAction(url,data_clear_error)
+        time.sleep(1)
+
+        data_initialize=rm.get_data("3","initialize")
+        print("step 5、初始化：")
+        c.checkAction(url,data_initialize)
+        time.sleep(10)
+
         data_r=rm.get_data("6","release")
-        print("step 2、释放设备：")
+        print("step 6、释放设备：")
         c.checkAction(url,data_r)
 
 
@@ -42,10 +63,4 @@ class websocket_request(unittest.TestCase):
         self.ws.close()
 
 if __name__ == "__main__":
-    # unittest.main()
-    for i in range(1,500):
-        suite = unittest.TestSuite()
-        suite.addTest(websocket_request('test_controlrelease'))
-        unittest.TextTestRunner(verbosity=2).run(suite)
-
-
+    unittest.main()

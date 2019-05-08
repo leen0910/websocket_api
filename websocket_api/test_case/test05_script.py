@@ -37,7 +37,7 @@ class websocket_request(unittest.TestCase):
         data_initialize=rm.get_data("3","initialize")
         print("step 2、初始化：")
         c.checkAction(url,data_initialize)
-        time.sleep(2)
+        time.sleep(8)
 
         data_mode=rm.get_data("4","move_mode_script")
         print("step 3、切换为脚本mode：")
