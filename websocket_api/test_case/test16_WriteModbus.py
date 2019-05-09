@@ -6,6 +6,8 @@ from common import read_info
 from common import read_message
 from common import check_action as c
 import time
+import json_tools
+import json
 
 class websocket_request(unittest.TestCase):
     """24. 修改modbus配置信息"""
@@ -40,6 +42,13 @@ class websocket_request(unittest.TestCase):
         data_read_modbus=rm.get_data("20","read_modbus")
         t=c.checkAction(url,data_read_modbus)
         time.sleep(1)
+
+        # data_write_modbus=json.loads(data_write_modbus)
+        # data_a=data_write_modbus["data"]["client"]
+        # data_b=t["data"]["client"]
+        # result=json_tools.diff(data_a,data_b)
+        # print(result)
+
         lenth=len(t["data"]["client"])
         for i in range(0,lenth):
             print(t["data"]["client"][i])
