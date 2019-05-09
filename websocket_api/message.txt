@@ -197,6 +197,12 @@ read_lua={
     "action": "device.read.lua",
     "data": ""
     }
-
+[25]
+set_defScript={
+    "action":"device.set.defScript",
+    "data":{
+        "name":"move.lua"
+    }
+    }
 
 
