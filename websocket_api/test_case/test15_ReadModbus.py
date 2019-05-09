@@ -31,9 +31,9 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_set_def=rm.get_data("20","read_modbus")
+        data_read_modbus=rm.get_data("20","read_modbus")
         print("step 2、读取modbus配置文件：")
-        c.checkAction(url,data_set_def)
+        c.checkAction(url,data_read_modbus)
         time.sleep(1)
 
         data_r=rm.get_data("6","release")

@@ -250,10 +250,10 @@ write_modbus={
                 "port":1502
             },
             {
-                "count":-1,
+                "count":20,
                 "enable":true,
                 "index":5,
-                "ip":"192.168.1.100",
+                "ip":"10.0.0.102",
                 "port":1502
             }
         ],

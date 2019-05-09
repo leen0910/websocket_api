@@ -31,9 +31,9 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_set_def=rm.get_data("26","clean_scriptCount")
+        data_clean_count=rm.get_data("26","clean_scriptCount")
         print("step 2、清除“move.lua”脚本运行次数：")
-        c.checkAction(url,data_set_def)
+        c.checkAction(url,data_clean_count)
         time.sleep(1)
 
         data_def_script=rm.get_data("17","read_lua")
