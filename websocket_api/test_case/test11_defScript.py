@@ -5,12 +5,10 @@ import unittest
 from common import read_info
 from common import read_message
 from common import check_action as c
-
-
-
+import time
 
 class websocket_request(unittest.TestCase):
-    """5. 控制设备 & 6. 释放设备 """
+    """14. 查询默认脚本"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -24,17 +22,24 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_controlrelease(self):
-        """5. 控制设备/5.1. 发送数据
-           6. 释放设备/6.1. 发送数据
-         """
+    def test_file_send(self):
+        """14. 查询默认脚本/14.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
         print("step 1、控制设备：")
         c.checkAction(url,data_c)
+        time.sleep(1)
+
+        data_def_script=rm.get_data("14","query_defScript")
+        print("step 3、查询默认default程序：")
+        t=c.checkAction(url,data_def_script)
+        time.sleep(1)
+        defname=t["data"]
+        print(defname)
+
         data_r=rm.get_data("6","release")
-        print("step 2、释放设备：")
+        print("step 3、释放设备：")
         c.checkAction(url,data_r)
 
 
@@ -42,12 +47,4 @@ class websocket_request(unittest.TestCase):
         self.ws.close()
 
 if __name__ == "__main__":
-    # unittest.main()
-    for i in range(1,1000):
-        suite = unittest.TestSuite()
-        suite.addTest(websocket_request('setUp'))
-        suite.addTest(websocket_request('test_controlrelease'))
-        suite.addTest(websocket_request('tearDown'))
-        unittest.TextTestRunner(verbosity=2).run(suite)
-
-
+    unittest.main()

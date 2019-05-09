@@ -186,3 +186,9 @@ script_delete={
         "name" : "test.lua"
     }
     }
+
+[14]
+query_defScript={
+    "action": "device.query.defScript",
+    "data": ""
+    }
