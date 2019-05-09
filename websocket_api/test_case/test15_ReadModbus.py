@@ -8,7 +8,7 @@ from common import check_action as c
 import time
 
 class websocket_request(unittest.TestCase):
-    """26. 清除脚本运行次数"""
+    """20. 读取modbus配置信息"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -22,8 +22,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_clean_count(self):
-        """26. 清除脚本运行次数/26.1. 发送数据 """
+    def test_read_modbus(self):
+        """20. 读取modbus配置信息/20.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -31,25 +31,13 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_set_def=rm.get_data("26","clean_scriptCount")
-        print("step 2、清除“move.lua”脚本运行次数：")
+        data_set_def=rm.get_data("20","read_modbus")
+        print("step 2、读取modbus配置文件：")
         c.checkAction(url,data_set_def)
         time.sleep(1)
 
-        data_def_script=rm.get_data("17","read_lua")
-        print("step 3、读取lua配置信息查询move.lua运行次数是否被清除：")
-        t=c.checkAction(url,data_def_script)
-        time.sleep(1)
-        lenth=len(t["data"]["file"])
-        for i in range(0,lenth):
-            if t["data"]["file"][i]["name"]=="move.lua":
-                if t["data"]["file"][i]["count"]==0:
-                    print("“move.lua”的运行次数成功被清零：%s"%t["data"]["file"][i])
-                else:
-                    print("“move.lua”的运行次数清除失败：%s"%t["data"]["file"][i])
-
         data_r=rm.get_data("6","release")
-        print("step 4、释放设备：")
+        print("step 3、释放设备：")
         c.checkAction(url,data_r)
 
 

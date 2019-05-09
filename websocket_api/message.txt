@@ -211,3 +211,54 @@ clean_scriptCount={
         "name" : "move.lua"
     }
     }
+[20]
+read_modbus={
+    "action": "device.read.modbus",
+    "data":""
+    }
+[24]
+write_modbus={
+    "action":"device.write.modbus",
+    "data":{
+        "client":[
+            {
+                "count":-1,
+                "enable":true,
+                "index":1,
+                "ip":"192.168.1.20",
+                "port":500
+            },
+            {
+                "count":-1,
+                "enable":true,
+                "index":2,
+                "ip":"192.168.1.111",
+                "port":1502
+            },
+            {
+                "count":-1,
+                "enable":false,
+                "index":3,
+                "ip":"192.168.1.100",
+                "port":1502
+            },
+            {
+                "count":-1,
+                "enable":false,
+                "index":4,
+                "ip":"192.168.1.91",
+                "port":1502
+            },
+            {
+                "count":-1,
+                "enable":true,
+                "index":5,
+                "ip":"192.168.1.100",
+                "port":1502
+            }
+        ],
+        "server":{
+            "port":1502
+        }
+    }
+    }

@@ -22,7 +22,7 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_det_def(self):
+    def test_set_def(self):
         """25. 设置默认脚本/25.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
