@@ -192,3 +192,11 @@ query_defScript={
     "action": "device.query.defScript",
     "data": ""
     }
+[17]
+read_lua={
+    "action": "device.read.lua",
+    "data": ""
+    }
+
+
+
