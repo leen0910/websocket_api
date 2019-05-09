@@ -32,7 +32,7 @@ class websocket_request(unittest.TestCase):
         time.sleep(1)
 
         data_def_script=rm.get_data("14","query_defScript")
-        print("step 3、查询默认default程序：")
+        print("step 2、查询默认default程序：")
         t=c.checkAction(url,data_def_script)
         time.sleep(1)
         defname=t["data"]

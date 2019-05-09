@@ -194,9 +194,9 @@ function showOutput(id, name) {
 
 <div class='page-header'>
 <h1>websocket接口自动化测试报告</h1>
-<p class='attribute'><strong>开始时间:</strong> 2019-05-09 10:46:38</p>
-<p class='attribute'><strong>运行时长:</strong> 0:01:19.496661</p>
-<p class='attribute'><strong>状态:</strong> 通过 13</p>
+<p class='attribute'><strong>开始时间:</strong> 2019-05-09 11:42:55</p>
+<p class='attribute'><strong>运行时长:</strong> 0:01:22.571284</p>
+<p class='attribute'><strong>状态:</strong> 通过 14</p>
 
 </div>
 <p class='description'>用例执行情况</p>
@@ -764,7 +764,7 @@ step 1、控制设备：
 返回action：device.control的数据：
 {'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
 device.control返回数据失败。
-step 3、查询默认default程序：
+step 2、查询默认default程序：
 返回action：device.query.defScript的数据：
 {'action': 'device.query.defScript', 'data': 'default script is : move.lua', 'success': True}
 device.query.defScript返回数据成功。
@@ -811,7 +811,7 @@ step 1、控制设备：
 返回action：device.control的数据：
 {'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
 device.control返回数据失败。
-step 3、读取lua配置信息：
+step 2、读取lua配置信息：
 返回action：device.read.lua的数据：
 {'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 3, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'test1.lua'}]}, 'success': True}
 device.read.lua返回数据成功。
@@ -836,7 +836,7 @@ device.release返回数据成功。
 </tr>
 
 <tr class='passClass'>
-    <td>test13_SetDef.websocket_request: 18. 设置默认脚本</td>
+    <td>test13_SetDef.websocket_request: 25. 设置默认脚本</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -845,7 +845,7 @@ device.release返回数据成功。
 </tr>
 
 <tr id='pt13.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_det_def: 18. 设置默认脚本/18.1. 发送数据</div></td>
+    <td class='none'><div class='testcase'>test_det_def: 25. 设置默认脚本/25.1. 发送数据</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -864,15 +864,66 @@ step 1、控制设备：
 返回action：device.control的数据：
 {'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
 device.control返回数据失败。
-step 3、设置“move.lua”为默认脚本：
+step 2、设置“move.lua”为默认脚本：
 返回action：device.set.defScript的数据：
 {'action': 'device.set.defScript', 'data': 'device set default script successfully !', 'success': True}
 device.set.defScript返回数据成功。
-step 4、读取lua配置信息查询move.lua是否被设置为默认脚本：
+step 3、读取lua配置信息查询move.lua是否被设置为默认脚本：
 返回action：device.read.lua的数据：
 {'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 3, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'test1.lua'}]}, 'success': True}
 device.read.lua返回数据成功。
 “move.lua”成功设置为默认脚本：{'count': 3, 'def_script': True, 'name': 'move.lua'}
+step 4、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test14_CleanCount.websocket_request: 26. 清除脚本运行次数</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">详情</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_det_def: 26. 清除脚本运行次数/26.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        通过</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、清除“move.lua”脚本运行次数：
+返回action：device.clean.scriptCount的数据：
+{'action': 'device.clean.scriptCount', 'data': 'device clean script count successfully !', 'success': True}
+device.clean.scriptCount返回数据成功。
+step 3、读取lua配置信息查询move.lua运行次数是否被清除：
+返回action：device.read.lua的数据：
+{'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 0, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'test1.lua'}]}, 'success': True}
+device.read.lua返回数据成功。
+“move.lua”的运行次数成功被清零：{'count': 0, 'def_script': True, 'name': 'move.lua'}
 step 5、释放设备：
 返回action：device.release的数据：
 {'action': 'device.release', 'data': 'device has been released', 'success': True}
@@ -888,8 +939,8 @@ device.release返回数据成功。
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>13</td>
-    <td>13</td>
+    <td>14</td>
+    <td>14</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>

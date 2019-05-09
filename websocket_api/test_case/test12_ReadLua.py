@@ -32,7 +32,7 @@ class websocket_request(unittest.TestCase):
         time.sleep(1)
 
         data_def_script=rm.get_data("17","read_lua")
-        print("step 3、读取lua配置信息：")
+        print("step 2、读取lua配置信息：")
         t=c.checkAction(url,data_def_script)
         time.sleep(1)
         lenth=len(t["data"]["file"])

@@ -204,5 +204,10 @@ set_defScript={
         "name":"move.lua"
     }
     }
-
-
+[26]
+clean_scriptCount={
+    "action": "device.clean.scriptCount",
+    "data":{
+        "name" : "move.lua"
+    }
+    }
