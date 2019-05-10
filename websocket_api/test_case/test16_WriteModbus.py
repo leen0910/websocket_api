@@ -7,6 +7,8 @@ from common import read_message
 from common import check_action as c
 import time
 
+
+
 import json_tools
 import json
 
@@ -48,7 +50,7 @@ class websocket_request(unittest.TestCase):
         # data_a=data_write_modbus["data"]["client"]
         # data_b=t["data"]["client"]
         # result=json_tools.diff(data_a,data_b)
-        # print(result)
+        # print("数据不同：%s"%result)
 
         lenth=len(t["data"]["client"])
         for i in range(0,lenth):
