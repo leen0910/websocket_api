@@ -262,13 +262,6 @@ write_modbus={
         }
     }
     }
-
-[18]
-read_motion={
-    "action":"device.read.motion",
-    "data":""
-    }
-
 [22]
 write_motion={
     "action":"device.write.motion",
@@ -466,4 +459,9 @@ write_io={
             }
         ]
     }
+    }
+[18]
+read_motion={
+    "action":"device.read.motion",
+    "data":""
     }
