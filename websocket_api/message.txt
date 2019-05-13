@@ -369,7 +369,7 @@ write_motion={
             }
         ],
         "cart_translate":{
-            "max_vel":5000,
+            "max_vel":3000,
             "max_acc":10000,
             "max_dec":10000,
             "max_jerk":1000,
@@ -385,5 +385,85 @@ write_motion={
         "ext_joint":[],
         "interpolation_frequency":500,
         "robot_type":0
+    }
+    }
+[19]
+read_io={
+    "action":"device.read.io",
+    "data":""
+    }
+
+[23]
+write_io={
+    "action":"device.write.io",
+    "data":{
+        "function":[
+            {
+                "func_name":"estop",
+                "local_name":"X0",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"red",
+                "local_name":"Y0",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"green",
+                "local_name":"Y1",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"blue",
+                "local_name":"Y2",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"relayflag",
+                "local_name":"Z0",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"di",
+                "local_name":"Z1",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"ad",
+                "local_name":"Z2",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"da",
+                "local_name":"Z3",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"dof",
+                "local_name":"Z4",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"dov",
+                "local_name":"Z5",
+                "number":1,
+                "start_state":0
+            },
+            {
+                "func_name":"pwm",
+                "local_name":"Z6",
+                "number":1,
+                "start_state":0
+            }
+        ]
     }
     }

@@ -1,4 +1,6 @@
 import json_tools
+import jsondiff
+import json
 
 def jsonDiff(a,b):
     result=json_tools.diff(a,b)
@@ -6,6 +8,15 @@ def jsonDiff(a,b):
         print("两个数据内容一致：%s"%result)
     else:
         print("两个数据内容存在不一致：%s"%result)
+
+def json_diff(a,b):
+    """第三方库，对于嵌套json数据进行比较"""
+    result=jsondiff.diff(a,b)
+    if result==[]:
+        print("两个数据内容一致：%s"%result)
+    else:
+        print("两个数据内容存在不一致：%s"%result)
+
 
 def cmp(src_data,dst_data):
     if isinstance(src_data,dict):

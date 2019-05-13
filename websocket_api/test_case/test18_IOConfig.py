@@ -14,7 +14,7 @@ import json
 
 
 class websocket_request(unittest.TestCase):
-    """21. 读取joint配置信息 & 22. 修改motion配置信息 """
+    """19. 读取io配置信息 & 23. 修改io配置信息 """
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -28,8 +28,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_motion_config(self):
-        """写入motion配置文件，再读取文件。两次文件比较 """
+    def test_io_config(self):
+        """写入io配置文件，再读取文件。两次文件比较 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -37,27 +37,27 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_write_motion=rm.get_data("22","write_motion")
-        print("step 2、写入motion配置信息：")
-        c.checkAction(url,data_write_motion)
+        data_write_io=rm.get_data("23","write_io")
+        print("step 2、写入io配置信息：")
+        c.checkAction(url,data_write_io)
         time.sleep(1)
 
-        print("step 3、读取motion配置信息：")
-        data_read_motion=rm.get_data("18","read_motion")
-        t=c.checkAction(url,data_read_motion)
+        print("step 3、读取io配置信息：")
+        data_read_io=rm.get_data("19","read_io")
+        t=c.checkAction(url,data_read_io)
         time.sleep(1)
 
         print("step 4、比较第二步和第三步的数据差异：")
-        data_write_motion=json.loads(data_write_motion)
+        data_write_motion=json.loads(data_write_io)
         a=data_write_motion["data"]
         b=t["data"]
-        d.json_diff(a,b)
+        d.jsonDiff(a,b)
 
 
-        print("step 5、列出motion关节字段：")
-        lenth=len(t["data"]["arm_joint"])
+        print("step 5、列出io功能数据：")
+        lenth=len(t["data"]["function"])
         for i in range(0,lenth):
-            print(t["data"]["arm_joint"][i])
+            print(t["data"]["function"][i])
 
 
         print("step 6、释放设备：")
