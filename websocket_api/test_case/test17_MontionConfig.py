@@ -53,7 +53,6 @@ class websocket_request(unittest.TestCase):
         b=t["data"]
         d.json_diff(a,b)
 
-
         print("step 5、列出motion关节字段：")
         lenth=len(t["data"]["arm_joint"])
         for i in range(0,lenth):

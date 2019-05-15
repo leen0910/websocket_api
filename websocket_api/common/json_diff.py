@@ -1,6 +1,7 @@
 import json_tools
 import jsondiff
 import json
+from collections import Iterable
 
 def jsonDiff(a,b):
     result=json_tools.diff(a,b)
@@ -38,6 +39,52 @@ def cmp(src_data,dst_data):
     else:
         if str(src_data)!=str(dst_data):
             print(src_data)
+
+
+
+def isEqual(value1,value2):
+    if type(value1)!=type(value2):
+        print("111111")
+        return False
+    if isinstance(value1,Iterable):
+        if len(value1)!=len(value2):
+            print("2222222222")
+            return False
+        if isinstance(value1,dict):
+            for key in value1:
+                if key not in value2:
+                    print("33333333333")
+                    return False
+                if type(value1[key])!=type(value2[key]):
+                    print("4444")
+                    return False
+                if isinstance(value1[key],Iterable):
+                    if not isEqual(value1[key],value2[key]):
+                        print("5555555555")
+                        return False
+                elif value1[key]!=value2[key]:
+                    print("666666666")
+                    return False
+        else:
+            if len(value1)!=len(value2):
+                print("777777777")
+                return False
+            for index in range(len(value1)):
+                if type(value1[index])!=type(value2[index]):
+                    print("888888888")
+                    return False
+                if isinstance(value1[index],Iterable)and type(value1[index])!=str:
+                    if not isEqual(value1[index],value2[index]):
+                        print("99999999999")
+                        return False
+                elif value1[index]!=value2[index]:
+                    print("00000000000")
+                    return False
+    else:
+        return value1==value2
+    return True
+
+
 
 
 

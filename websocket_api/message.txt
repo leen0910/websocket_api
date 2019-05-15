@@ -329,7 +329,7 @@ write_motion={
                 "rotation_joint":false,
                 "soft_limit_l":-150,
                 "soft_limit_h":10,
-                "max_vel":750.0,
+                "max_vel":750,
                 "max_acc":13000,
                 "max_dec":10000,
                 "emergency_dec":20000,
@@ -357,25 +357,26 @@ write_motion={
                 "max_jerk":0.1,
                 "reduce_rate":1000,
                 "coupling_relationship":[
-
                 ]
             }
         ],
         "cart_translate":{
-            "max_vel":3000,
-            "max_acc":10000,
-            "max_dec":10000,
-            "max_jerk":1000,
-            "emergency_dec":15000
-        },
-        "cart_rotate":{
-            "max_vel":540,
+            "max_vel":200,
             "max_acc":1000,
             "max_dec":1000,
             "max_jerk":1000,
             "emergency_dec":10000
         },
-        "ext_joint":[],
+        "cart_rotate":{
+            "max_vel":200,
+            "max_acc":1000,
+            "max_dec":1000,
+            "max_jerk":1000,
+            "emergency_dec":10000
+        },
+        "ext_joint":[
+
+        ],
         "interpolation_frequency":500,
         "robot_type":0
     }
