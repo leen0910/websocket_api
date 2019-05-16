@@ -266,119 +266,116 @@ write_modbus={
 write_motion={
     "action":"device.write.motion",
     "data":{
-        "end_effector":{
-            "p":[
-                0,
-                0,
-                0
-            ],
-            "rpy":[
-                0,
-                0,
-                0
+    "end_effector": {
+        "p": [
+            0,
+            0,
+            0
+        ],
+        "rpy": [
+            0,
+            0,
+            0
+        ]
+    },
+    "arm_joint": [
+        {
+            "a": 250,
+            "alpha": 0,
+            "d": 0,
+            "theta": 0,
+            "rotation_joint": true,
+            "soft_limit_l": -2.6,
+            "soft_limit_h": 3.14,
+            "max_vel": 5.8,
+            "max_acc": 25,
+            "max_dec": 23,
+            "emergency_dec": 100,
+            "max_jerk": 500,
+            "reduce_rate": 1000,
+            "coupling_relationship": [
+                [
+                    4,
+                    10
+                ]
             ]
         },
-        "arm_joint":[
-            {
-                "a":250,
-                "alpha":0,
-                "d":0,
-                "theta":0,
-                "rotation_joint":true,
-                "soft_limit_l":-2.6,
-                "soft_limit_h":3.14,
-                "max_vel":5.8,
-                "max_acc":25,
-                "max_dec":23,
-                "emergency_dec":200,
-                "max_jerk":0.1,
-                "reduce_rate":1000,
-                "coupling_relationship":[
-                    [
-                        4,
-                        10
-                    ]
+        {
+            "a": 150,
+            "alpha": 0,
+            "d": 0,
+            "theta": 0,
+            "rotation_joint": true,
+            "soft_limit_l": -2.2,
+            "soft_limit_h": 2.2,
+            "max_vel": 5.8,
+            "max_acc": 60,
+            "max_dec": 57,
+            "emergency_dec": 100,
+            "max_jerk": 500,
+            "reduce_rate": 1000,
+            "coupling_relationship": [
+                [
+                    1,
+                    -2
                 ]
-            },
-            {
-                "a":150,
-                "alpha":0,
-                "d":0,
-                "theta":0,
-                "rotation_joint":true,
-                "soft_limit_l":-2.2,
-                "soft_limit_h":2.2,
-                "max_vel":5.8,
-                "max_acc":60,
-                "max_dec":57,
-                "emergency_dec":200,
-                "max_jerk":0.1,
-                "reduce_rate":1000,
-                "coupling_relationship":[
-                    [
-                        1,
-                        -2
-                    ]
-                ]
-            },
-            {
-                "a":0,
-                "alpha":0,
-                "d":0,
-                "theta":0,
-                "rotation_joint":false,
-                "soft_limit_l":-150,
-                "soft_limit_h":10,
-                "max_vel":750,
-                "max_acc":13000,
-                "max_dec":10000,
-                "emergency_dec":20000,
-                "max_jerk":0.1,
-                "reduce_rate":1000,
-                "coupling_relationship":[
-                    [
-                        4,
-                        -2
-                    ]
-                ]
-            },
-            {
-                "a":0,
-                "alpha":0,
-                "d":0,
-                "theta":0,
-                "rotation_joint":true,
-                "soft_limit_l":-6.28,
-                "soft_limit_h":6.28,
-                "max_vel":9.2,
-                "max_acc":210,
-                "max_dec":200,
-                "emergency_dec":200,
-                "max_jerk":0.1,
-                "reduce_rate":1000,
-                "coupling_relationship":[
-                ]
-            }
-        ],
-        "cart_translate":{
-            "max_vel":200,
-            "max_acc":1000,
-            "max_dec":1000,
-            "max_jerk":1000,
-            "emergency_dec":10000
+            ]
         },
-        "cart_rotate":{
-            "max_vel":200,
-            "max_acc":1000,
-            "max_dec":1000,
-            "max_jerk":1000,
-            "emergency_dec":10000
+        {
+            "a": 0,
+            "alpha": 0,
+            "d": 0,
+            "theta": 0,
+            "rotation_joint": false,
+            "soft_limit_l": -150,
+            "soft_limit_h": 10,
+            "max_vel": 750,
+            "max_acc": 13000,
+            "max_dec": 10000,
+            "emergency_dec": 20000,
+            "max_jerk": 50000,
+            "reduce_rate": 1000,
+            "coupling_relationship": [
+                [
+                    4,
+                    -2
+                ]
+            ]
         },
-        "ext_joint":[
-
-        ],
-        "interpolation_frequency":500,
-        "robot_type":0
+        {
+            "a": 0,
+            "alpha": 0,
+            "d": 0,
+            "theta": 0,
+            "rotation_joint": true,
+            "soft_limit_l": -6.28,
+            "soft_limit_h": 6.28,
+            "max_vel": 9.2,
+            "max_acc": 210,
+            "max_dec": 200,
+            "emergency_dec": 300,
+            "max_jerk": 1000,
+            "reduce_rate": 1000,
+            "coupling_relationship": []
+        }
+    ],
+    "cart_translate": {
+        "max_vel": 2000,
+        "max_acc": 10000,
+        "max_dec": 10000,
+        "max_jerk": 50000,
+        "emergency_dec": 15000
+    },
+    "cart_rotate": {
+        "max_vel": 9.2,
+        "max_acc": 210,
+        "max_dec": 200,
+        "max_jerk": 1000,
+        "emergency_dec": 200
+    },
+    "ext_joint": [],
+    "interpolation_frequency": 500,
+    "robot_type": 0
     }
     }
 [19]

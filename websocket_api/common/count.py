@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # 打开文件
 
-fr=open('心经繁.txt','r', encoding='UTF-8')
+fr=open('心经简.txt','r', encoding='UTF-8')
 # 读取文件所有行
 content=fr.readlines()
 contentLines=''

@@ -4,14 +4,8 @@
 import json
 
 def checkAction(ws,data):
-    if type(data)==str:
-        data_json=json.loads(data)
-        action=data_json["action"]
-    elif type(data)==dict:
-        action=data["action"]
-        data=str(data)
-    else:
-        action=data["action"]
+    data_json=json.loads(data)
+    action=data_json["action"]
     try:
         ws.send(data)
         for i in range(1,50):
