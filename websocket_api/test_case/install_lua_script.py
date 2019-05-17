@@ -17,8 +17,8 @@ import json
 
 class install(unittest.TestCase):
     """安装脚本文件"""
-    filename="nil.lua"
-    path='../scripts/nil.lua'
+    filename="arc.lua"
+    path='../scripts/arc.lua'
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
