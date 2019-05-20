@@ -39,10 +39,10 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_initialize)
         time.sleep(8)
 
-        data_mode=rm.get_data("4","move_mode_script")
-        print("step 3、切换为脚本mode：")
-        c.checkAction(url,data_mode)
-        time.sleep(1)
+        # data_mode=rm.get_data("4","move_mode_script")
+        # print("step 3、切换为脚本mode：")
+        # c.checkAction(url,data_mode)
+        # time.sleep(1)
 
         data_script_start=rm.get_data("1","run_script_start")
         print("step 4、运行脚本：move.lua：")

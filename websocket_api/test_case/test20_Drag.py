@@ -11,7 +11,7 @@ import time
 
 
 class websocket_request(unittest.TestCase):
-    """11. 控制器接收文件"""
+    """4. 运行模式切换"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -25,8 +25,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_file_receive(self):
-        """11. 控制器接收文件/11.1. 发送数据 """
+    def test_drag(self):
+        """4. 运行模式切换/插补：Interpolation，拖拽：drag """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -34,32 +34,24 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_file_receive=rm.get_data("11","file_receive")
-        print("step 2、向设备写入文件test.lua：")
-        c.checkAction(url,data_file_receive)
-        time.sleep(2)
-
-        data_initialize=rm.get_data("3","initialize")
-        print("step 3、初始化：")
-        c.checkAction(url,data_initialize)
+        data=rm.get_data("3","initialize")
+        print("step 2、初始化：")
+        c.checkAction(url,data)
         time.sleep(8)
 
-        # data_mode=rm.get_data("4","move_mode_script")
-        # print("step 4、切换为脚本mode：")
-        # c.checkAction(url,data_mode)
-        # time.sleep(1)
+        data_drag=rm.get_data("4","move_mode_drag")
+        print("step 3、进入拖拽模式：")
+        c.checkAction(url,data_drag)
+        time.sleep(3)
 
-        data_script_start=rm.get_data("1","run_script_start_test")
-        print("step 5、运行step 2写入的脚本：test.lua：")
-        c.checkAction(url,data_script_start)
-        time.sleep(5)
+        data_interpolation=rm.get_data("4","move_mode_interpolation")
+        print("step 4、进入插补模式：")
+        c.checkAction(url,data_interpolation)
+        time.sleep(2)
 
-        data_script_stop=rm.get_data("1","run_script_stop")
-        print("step 6、停止脚本运行：")
-        c.checkAction(url,data_script_stop)
 
         data_r=rm.get_data("6","release")
-        print("step 7、释放设备：")
+        print("step 5、释放设备：")
         c.checkAction(url,data_r)
 
 

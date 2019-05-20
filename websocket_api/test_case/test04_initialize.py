@@ -37,7 +37,7 @@ class websocket_request(unittest.TestCase):
         data=rm.get_data("3","initialize")
         print("step 2、初始化：")
         c.checkAction(url,data)
-        time.sleep(3)
+        time.sleep(8)
 
         data_r=rm.get_data("6","release")
         print("step 3、释放设备：")

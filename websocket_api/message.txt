@@ -113,7 +113,7 @@ move_mode_teach={
     "action" : "device.move.mode",
     "data":
     {
-        "mode" : "teach"
+        "mode" : "Teach"
     }
     }
 
@@ -121,9 +121,18 @@ move_mode_drag={
     "action" : "device.move.mode",
     "data":
     {
-        "mode" : "drag"
+        "mode" : "Drag"
     }
     }
+
+move_mode_interpolation={
+    "action" : "device.move.mode",
+    "data":
+    {
+        "mode" : "Interpolation"
+    }
+    }
+
 
 [9]
 control_mode_debug={
