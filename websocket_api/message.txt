@@ -473,7 +473,7 @@ read_motion={
     "data":""
     }
 [29]
-set_breakPoint={
+set_breakpoint={
     "action":"device.set.breakPoint",
     "data":[
         10,
@@ -481,7 +481,7 @@ set_breakPoint={
     ]
     }
 [30]
-clean_breakPoint={
+clean_breakpoint={
     "action":"device.clean.breakPoint",
     "data":{
 

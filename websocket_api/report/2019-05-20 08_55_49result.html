@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>websocket接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.3"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    /* width: 500px;*/
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 99%;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #74A474; }
+.failClass  { background-color: #FDD283; }
+.errorClass { background-color: #FF6600; }
+.passCase   { color: #6c6; }
+.failCase   { color: #FF6600; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+#div_base {
+            position:absolute;
+            top:0%;
+            left:5%;
+            right:5%;
+            width: auto;
+            height: auto;
+            margin: -15px 0 0 0;
+}
+</style>
+
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+<div id="div_base">
+
+<div class='page-header'>
+<h1>websocket接口自动化测试报告</h1>
+<p class='attribute'><strong>开始时间:</strong> 2019-05-20 08:55:49</p>
+<p class='attribute'><strong>运行时长:</strong> 0:01:34.587746</p>
+<p class='attribute'><strong>状态:</strong> 通过 19</p>
+
+</div>
+<p class='description'>用例执行情况</p>
+
+
+
+<div class="btn-group btn-group-sm">
+<button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+</div>
+<p></p>
+<table id='result_table' class="table table-bordered">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>测试套件/测试用例</td>
+    <td>总数</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>查看</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test01_InfoRead.websocket_request: 7. 查询设备信息 </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">详情</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_info_read: 7. 查询设备信息/7.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        通过</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 服务：ws://192.168.1.91:9001连接成功!
+发送“查询设备信息”数据：
+返回action：device.info.read的数据：
+{'action': 'device.info.read', 'data': '{\n\t"authorization_time" : "2018-01-01 00:00:00",\n\t"config" : "../conf/",\n\t"device_name" : "device2",\n\t"group" : "group1",\n\t"log" : "../log/",\n\t"lua" : "../scripts/",\n\t"model" : "QX-PRODUCE-4060",\n\t"password" : "123asd",\n\t"update" : "../update/",\n\t"user_name" : "qiqi"\n}\n', 'success': True}
+device.info.read返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test02_ControRelease.websocket_request: 5. 控制设备 & 6. 释放设备 </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">详情</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_controlrelease: 5. 控制设备/5.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        通过</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test03_Config.websocket_request: 8. 修改设备信息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">详情</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_config: 8. 修改设备信息/8.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        通过</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、修改设备信息：
+返回action：device.config的数据：
+{'action': 'device.config', 'data': 'device config infomation modify successfully !', 'success': True}
+device.config返回数据成功。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test04_initialize.websocket_request: 3. 开始初始化</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">详情</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_initialize: 3. 开始初始化/3.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        通过</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、初始化：
+返回action：device.initialize的数据：
+{'action': 'device.initialize', 'data': 'the cmd:1203 is not valid in state:13for:undefine in message filter', 'success': False}
+device.initialize返回数据失败。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test05_script.websocket_request: 1. 脚本运行 & 2. 修改运行速度 & 4. 运行模式切换</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">详情</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_run_script: 1. 脚本运行/1.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        通过</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、初始化：
+返回action：device.initialize的数据：
+{'action': 'device.initialize', 'data': 'the cmd:1203 is not valid in state:13for:undefine in message filter', 'success': False}
+device.initialize返回数据失败。
+step 4、运行脚本：move.lua：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'action device.run executes successfully', 'success': True}
+device.run.script返回数据成功。
+step 5、调节运行速度为50%
+返回action：device.run.velocity的数据：
+{'action': 'device.run.velocity', 'data': 'set device running velocity :50', 'success': True}
+device.run.velocity返回数据成功。
+step 6、暂停脚本运行：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'action device.run executes successfully', 'success': True}
+device.run.script返回数据成功。
+step 7、暂停后继续脚本运行：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'action device.run executes successfully', 'success': True}
+device.run.script返回数据成功。
+step 8、停止脚本运行：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'api-&gt;motion abort error: the cmd:217 is not valid in state:16for:The device is in state switching!', 'success': False}
+device.run.script返回数据失败。
+step 9、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test06_ControlMode.websocket_request: 9. 操作模式切换</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">详情</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_control_mode: 9.1切换debug/user模式</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        通过</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、切换为debug模式：
+返回action：device.control.mode的数据：
+{'action': 'device.control.mode', 'data': 'Enter debug mode', 'success': True}
+device.control.mode返回数据成功。
+step 3、切换为user模式：
+返回action：device.control.mode的数据：
+{'action': 'device.control.mode', 'data': 'Enter user mode', 'success': True}
+device.control.mode返回数据成功。
+step 4、清除错误：
+返回action：device.clear.all.error的数据：
+{'action': 'device.clear.all.error', 'data': 'clear all error success.', 'success': True}
+device.clear.all.error返回数据成功。
+step 5、初始化：
+返回action：device.initialize的数据：
+{'action': 'device.initialize', 'data': 'device initialize success', 'success': True}
+device.initialize返回数据成功。
+step 6、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test07_ScriptQuery.websocket_request: 10. 查询已安装脚本</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">详情</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_script_query: 10. 查询已安装脚本/10.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        通过</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、查询已安装脚本：
+返回action：device.script.query的数据：
+{'action': 'device.script.query', 'data': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 1, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'ln1.lua'}, {'count': 5, 'def_script': False, 'name': 'l2.lua'}, {'count': 80, 'def_script': False, 'name': 'nil.lua'}, {'count': 0, 'def_script': False, 'name': 'frame.lua'}, {'count': 1, 'def_script': False, 'name': 'frame1.lua'}, {'count': 50, 'def_script': False, 'name': 'test2.lua'}, {'count': 0, 'def_script': False, 'name': 'arc.lua'}], 'success': True}
+device.script.query返回数据成功。
+step 3、准备列出已安装脚本名称：
+列出已安装脚本名称：
+hello.lua
+move.lua
+train.lua
+5.lua
+6.lua
+ln1.lua
+l2.lua
+nil.lua
+frame.lua
+frame1.lua
+test2.lua
+arc.lua
+step 4、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test08_FileSend.websocket_request: 12. 控制器发送文件</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">详情</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_file_send: 12. 控制器发送文件/12.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        通过</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、从设备读取文件move.lua：
+返回action：device.file.send的数据：
+{'action': 'device.file.send', 'data': 'LS0geyJtb3ZlX3AycF9wb3NpdCIsIG1vdmVfcDJwX3Bvc2l0fSwKLS0geyJtb3ZlX2xpbmVfcG9zZSIsIG1vdmVfbGluZV9wb3NlfSwKLS0geyJtb3ZlX2FyY19wb3NlIiwgbW92ZV9hcmNfcG9zZX0sCi0tIHsid2FpdF9tb3ZlX2RvbmUiLCB3YWl0X21vdmVfZG9uZX0sCi0tIHsic2V0X2RlZmF1bHRfc2NyaXB0Iiwgc2V0X2RlZmF1bHRfc2NyaXB0fSwKLS0geyJzZXRfZGVsYXlfc2VjIiwgc2V0X2RlbGF5X3NlY30sCgotLSDlhbPoioLlnZDmoIcKcG9zZV94PTI1MApsZW5ndGg9MTcuNjc3NjY5NTMKdmVsPTEwMDsKYmxlbmQ9MzA7Cgpwb3NlMT17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0tMTUwLCBbInoiXSA9IC0xMDAsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9CnBvc2VtMT17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0tMTI1LWxlbmd0aCwgWyJ6Il0gPSAtMTAwK2xlbmd0aCxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZTI9e1sieCJdID0gcG9zZV94LCBbInkiXSA9LTE1MCsyNSwgWyJ6Il0gPSAtNzUsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9CnBvc2UzPXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPTE1MC0yNSwgWyJ6Il0gPSAtNzUsWyJhIl0gPSAwLFsiYiJdID0gMCxbImMiXSA9IDB9CnBvc2VtMj17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0xMjUrbGVuZ3RoLCBbInoiXSA9IC0xMDArbGVuZ3RoLFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQpwb3NlND17WyJ4Il0gPSBwb3NlX3gsIFsieSJdID0xNTAsIFsieiJdID0gLTEwMCxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZXQxPXtbIngiXSA9IHBvc2VfeCwgWyJ5Il0gPS01MCwgWyJ6Il0gPSAtMTAwLFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQpwb3NldDI9e1sieCJdID0gcG9zZV94LCBbInkiXSA9LTUwK2xlbmd0aCwgWyJ6Il0gPSAtMTAwK2xlbmd0aCxbImEiXSA9IDAsWyJiIl0gPSAwLFsiYyJdID0gMH0KcG9zZXQzPXtbIngiXSA9IHBvc2VfeCswLjAwMSwgWyJ5Il0gPTAsIFsieiJdID0gLTc1LFsiYSJdID0gMCxbImIiXSA9IDAsWyJjIl0gPSAwfQoKcG9zaXQxPXtbImoxIl09MSxbImoyIl09LTEsWyJqMyJdPTAsWyJqNCJdPTAsWyJqNSJdPTAsWyJqNiJdPTB9CnJvYm90Lm1vdmVfcDJwX3Bvc2l0KHBvc2l0MSx2ZWwsYmxlbmQpCnJvYm90Lm1vdmVfbGluZV9wb3NlKHBvc2UxLHZlbCxibGVuZCkKd2hpbGUoMSkKZG8KCXJvYm90Lm1vdmVfYXJjX3Bvc2UocG9zZW0xLHBvc2UyLHZlbCxibGVuZCkKCXJvYm90Lm1vdmVfbGluZV9wb3NlKHBvc2UzLHZlbCxibGVuZCkKCXJvYm90Lm1vdmVfYXJjX3Bvc2UocG9zZW0yLHBvc2U0LHZlbCxibGVuZCkKCXByaW50KCJoZWxsbyIpCglyb2JvdC5tb3ZlX2FyY19wb3NlKHBvc2VtMixwb3NlMyx2ZWwsYmxlbmQpCglyb2JvdC5tb3ZlX2xpbmVfcG9zZShwb3NlMix2ZWwsYmxlbmQpCglyb2JvdC5tb3ZlX2FyY19wb3NlKHBvc2VtMSxwb3NlMSx2ZWwsYmxlbmQpCmVuZAo=', 'success': True}
+device.file.send返回数据成功。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test09_FileReceive.websocket_request: 11. 控制器接收文件</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">详情</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_file_receive: 11. 控制器接收文件/11.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        通过</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、向设备写入文件test.lua：
+返回action：device.file.receive的数据：
+{'action': 'device.file.receive', 'data': 'device receive file successfully !', 'success': True}
+device.file.receive返回数据成功。
+step 3、初始化：
+返回action：device.initialize的数据：
+{'action': 'device.initialize', 'data': 'the cmd:1203 is not valid in state:13for:undefine in message filter', 'success': False}
+device.initialize返回数据失败。
+step 5、运行step 2写入的脚本：test.lua：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'action device.run executes successfully', 'success': True}
+device.run.script返回数据成功。
+step 6、停止脚本运行：
+返回action：device.run.script的数据：
+{'action': 'device.run.script', 'data': 'api-&gt;motion abort error: the cmd:217 is not valid in state:16for:The device is in state switching!', 'success': False}
+device.run.script返回数据失败。
+step 7、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test10_ScriptDelete.websocket_request: 13. 控制器删除文件</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">详情</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_file_send: 13. 控制器删除文件/13.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        通过</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、删除测试安装的脚本文件test.lua：
+返回action：device.script.delete的数据：
+{'action': 'device.script.delete', 'data': 'file deleted successfully', 'success': True}
+device.script.delete返回数据成功。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test11_defScript.websocket_request: 14. 查询默认脚本</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',1)">详情</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_file_send: 14. 查询默认脚本/14.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+        通过</a>
+
+    <div id='div_pt11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、查询默认default程序：
+返回action：device.query.defScript的数据：
+{'action': 'device.query.defScript', 'data': 'default script is : move.lua', 'success': True}
+device.query.defScript返回数据成功。
+default script is : move.lua
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test12_ReadLua.websocket_request: 17. 读取lua配置信息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">详情</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_read_lua: 17. 读取lua配置信息/17.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        通过</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、读取lua配置信息：
+返回action：device.read.lua的数据：
+{'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 1, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'ln1.lua'}, {'count': 5, 'def_script': False, 'name': 'l2.lua'}, {'count': 80, 'def_script': False, 'name': 'nil.lua'}, {'count': 0, 'def_script': False, 'name': 'frame.lua'}, {'count': 1, 'def_script': False, 'name': 'frame1.lua'}, {'count': 50, 'def_script': False, 'name': 'test2.lua'}, {'count': 0, 'def_script': False, 'name': 'arc.lua'}]}, 'success': True}
+device.read.lua返回数据成功。
+显示lua配置信息列：
+{'count': 2, 'def_script': False, 'name': 'hello.lua'}
+{'count': 1, 'def_script': True, 'name': 'move.lua'}
+{'count': 4, 'def_script': False, 'name': 'train.lua'}
+{'count': 5, 'def_script': False, 'name': '5.lua'}
+{'count': 6, 'def_script': False, 'name': '6.lua'}
+{'count': 0, 'def_script': False, 'name': 'ln1.lua'}
+{'count': 5, 'def_script': False, 'name': 'l2.lua'}
+{'count': 80, 'def_script': False, 'name': 'nil.lua'}
+{'count': 0, 'def_script': False, 'name': 'frame.lua'}
+{'count': 1, 'def_script': False, 'name': 'frame1.lua'}
+{'count': 50, 'def_script': False, 'name': 'test2.lua'}
+{'count': 0, 'def_script': False, 'name': 'arc.lua'}
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test13_SetDef.websocket_request: 25. 设置默认脚本</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',1)">详情</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_set_def: 25. 设置默认脚本/25.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        通过</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、设置“move.lua”为默认脚本：
+返回action：device.set.defScript的数据：
+{'action': 'device.set.defScript', 'data': 'device set default script successfully !', 'success': True}
+device.set.defScript返回数据成功。
+step 3、读取lua配置信息查询move.lua是否被设置为默认脚本：
+返回action：device.read.lua的数据：
+{'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 1, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'ln1.lua'}, {'count': 5, 'def_script': False, 'name': 'l2.lua'}, {'count': 80, 'def_script': False, 'name': 'nil.lua'}, {'count': 0, 'def_script': False, 'name': 'frame.lua'}, {'count': 1, 'def_script': False, 'name': 'frame1.lua'}, {'count': 50, 'def_script': False, 'name': 'test2.lua'}, {'count': 0, 'def_script': False, 'name': 'arc.lua'}]}, 'success': True}
+device.read.lua返回数据成功。
+“move.lua”成功设置为默认脚本：{'count': 1, 'def_script': True, 'name': 'move.lua'}
+step 4、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test14_CleanCount.websocket_request: 26. 清除脚本运行次数</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">详情</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_clean_count: 26. 清除脚本运行次数/26.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        通过</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、清除“move.lua”脚本运行次数：
+返回action：device.clean.scriptCount的数据：
+{'action': 'device.clean.scriptCount', 'data': 'device clean script count successfully !', 'success': True}
+device.clean.scriptCount返回数据成功。
+step 3、读取lua配置信息查询move.lua运行次数是否被清除：
+返回action：device.read.lua的数据：
+{'action': 'device.read.lua', 'data': {'file': [{'count': 2, 'def_script': False, 'name': 'hello.lua'}, {'count': 0, 'def_script': True, 'name': 'move.lua'}, {'count': 4, 'def_script': False, 'name': 'train.lua'}, {'count': 5, 'def_script': False, 'name': '5.lua'}, {'count': 6, 'def_script': False, 'name': '6.lua'}, {'count': 0, 'def_script': False, 'name': 'ln1.lua'}, {'count': 5, 'def_script': False, 'name': 'l2.lua'}, {'count': 80, 'def_script': False, 'name': 'nil.lua'}, {'count': 0, 'def_script': False, 'name': 'frame.lua'}, {'count': 1, 'def_script': False, 'name': 'frame1.lua'}, {'count': 50, 'def_script': False, 'name': 'test2.lua'}, {'count': 0, 'def_script': False, 'name': 'arc.lua'}]}, 'success': True}
+device.read.lua返回数据成功。
+“move.lua”的运行次数成功被清零：{'count': 0, 'def_script': True, 'name': 'move.lua'}
+step 4、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test15_ReadModbus.websocket_request: 20. 读取modbus配置信息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',1)">详情</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_read_modbus: 20. 读取modbus配置信息/20.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        通过</a>
+
+    <div id='div_pt15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、读取modbus配置文件：
+返回action：device.read.modbus的数据：
+{'action': 'device.read.modbus', 'data': {'client': [{'count': -1, 'enable': True, 'index': 1, 'ip': '192.168.1.20', 'port': 500}, {'count': -1, 'enable': True, 'index': 2, 'ip': '192.168.1.111', 'port': 1502}, {'count': -1, 'enable': False, 'index': 3, 'ip': '192.168.1.100', 'port': 1502}, {'count': -1, 'enable': False, 'index': 4, 'ip': '192.168.1.91', 'port': 1502}, {'count': 20, 'enable': True, 'index': 5, 'ip': '10.0.0.102', 'port': 1502}], 'server': {'port': 1502}}, 'success': True}
+device.read.modbus返回数据成功。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test16_WriteModbus.websocket_request: 24. 修改modbus配置信息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',1)">详情</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_write_modbus: 24. 修改modbus配置信息/24.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.1')" >
+        通过</a>
+
+    <div id='div_pt16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、写入modbus配置文件：
+返回action：device.write.modbus的数据：
+{'action': 'device.write.modbus', 'data': 'write modbus config success', 'success': True}
+device.write.modbus返回数据成功。
+step 3、校验写入的modbus配置文件正确性：
+返回action：device.read.modbus的数据：
+{'action': 'device.read.modbus', 'data': {'client': [{'count': -1, 'enable': True, 'index': 1, 'ip': '192.168.1.20', 'port': 500}, {'count': -1, 'enable': True, 'index': 2, 'ip': '192.168.1.111', 'port': 1502}, {'count': -1, 'enable': False, 'index': 3, 'ip': '192.168.1.100', 'port': 1502}, {'count': -1, 'enable': False, 'index': 4, 'ip': '192.168.1.91', 'port': 1502}, {'count': 20, 'enable': True, 'index': 5, 'ip': '10.0.0.102', 'port': 1502}], 'server': {'port': 1502}}, 'success': True}
+device.read.modbus返回数据成功。
+{'count': -1, 'enable': True, 'index': 1, 'ip': '192.168.1.20', 'port': 500}
+写入modbus配置index=1信息正确
+{'count': -1, 'enable': True, 'index': 2, 'ip': '192.168.1.111', 'port': 1502}
+写入modbus配置index=2信息正确
+{'count': -1, 'enable': False, 'index': 3, 'ip': '192.168.1.100', 'port': 1502}
+写入modbus配置index=3信息正确
+{'count': -1, 'enable': False, 'index': 4, 'ip': '192.168.1.91', 'port': 1502}
+写入modbus配置index=4信息正确
+{'count': 20, 'enable': True, 'index': 5, 'ip': '10.0.0.102', 'port': 1502}
+写入modbus配置index=5信息正确!
+step 4、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test17_MontionConfig.websocket_request: 21. 读取joint配置信息 & 22. 修改motion配置信息 </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',1)">详情</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_motion_config: 写入motion配置文件，再读取文件。两次文件比较</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        通过</a>
+
+    <div id='div_pt17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、写入motion配置信息：
+返回action：device.write.motion的数据：
+{'action': 'device.write.motion', 'data': 'write motion config success', 'success': True}
+device.write.motion返回数据成功。
+step 3、读取motion配置信息：
+返回action：device.read.motion的数据：
+{'action': 'device.read.motion', 'data': {'arm_joint': [{'a': 250.0, 'alpha': 0.0, 'coupling_relationship': [[4, 10.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 25.0, 'max_dec': 23.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 3.14, 'soft_limit_l': -2.6, 'theta': 0.0}, {'a': 150.0, 'alpha': 0.0, 'coupling_relationship': [[1, -2.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 60.0, 'max_dec': 57.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 2.2, 'soft_limit_l': -2.2, 'theta': 0.0}, {'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[4, -2.0]], 'd': 0.0, 'emergency_dec': 20000.0, 'max_acc': 13000.0, 'max_dec': 10000.0, 'max_jerk': 50000.0, 'max_vel': 750.0, 'reduce_rate': 1000.0, 'rotation_joint': False, 'soft_limit_h': 10.0, 'soft_limit_l': -150.0, 'theta': 0.0}, {'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[0, 0.0]], 'd': 0.0, 'emergency_dec': 300.0, 'max_acc': 210.0, 'max_dec': 200.0, 'max_jerk': 1000.0, 'max_vel': 9.2, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 6.28, 'soft_limit_l': -6.28, 'theta': 0.0}], 'cart_rotate': {'emergency_dec': 200.0, 'max_acc': 210.0, 'max_dec': 200.0, 'max_jerk': 1000.0, 'max_vel': 9.2}, 'cart_translate': {'emergency_dec': 15000.0, 'max_acc': 10000.0, 'max_dec': 10000.0, 'max_jerk': 50000.0, 'max_vel': 2000.0}, 'end_effector': {'p': [0.0, 0.0, 0.0], 'rpy': [0.0, 0.0, 0.0]}, 'ext_joint': [], 'interpolation_frequency': 500.0, 'robot_type': 0}, 'success': True}
+device.read.motion返回数据成功。
+step 4、比较第二步和第三步的数据差异：
+两个数据内容存在不一致：{'arm_joint': {3: {'coupling_relationship': [[0, 0.0]]}}}
+step 5、列出motion关节字段：
+{'a': 250.0, 'alpha': 0.0, 'coupling_relationship': [[4, 10.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 25.0, 'max_dec': 23.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 3.14, 'soft_limit_l': -2.6, 'theta': 0.0}
+{'a': 150.0, 'alpha': 0.0, 'coupling_relationship': [[1, -2.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 60.0, 'max_dec': 57.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 2.2, 'soft_limit_l': -2.2, 'theta': 0.0}
+{'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[4, -2.0]], 'd': 0.0, 'emergency_dec': 20000.0, 'max_acc': 13000.0, 'max_dec': 10000.0, 'max_jerk': 50000.0, 'max_vel': 750.0, 'reduce_rate': 1000.0, 'rotation_joint': False, 'soft_limit_h': 10.0, 'soft_limit_l': -150.0, 'theta': 0.0}
+{'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[0, 0.0]], 'd': 0.0, 'emergency_dec': 300.0, 'max_acc': 210.0, 'max_dec': 200.0, 'max_jerk': 1000.0, 'max_vel': 9.2, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 6.28, 'soft_limit_l': -6.28, 'theta': 0.0}
+step 6、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test18_IOConfig.websocket_request: 19. 读取io配置信息 & 23. 修改io配置信息 </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">详情</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_io_config: 写入io配置文件，再读取文件。两次文件比较</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        通过</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、写入io配置信息：
+返回action：device.write.io的数据：
+{'action': 'device.write.io', 'data': "write io config is error,don't save", 'success': False}
+device.write.io返回数据失败。
+step 3、读取io配置信息：
+返回action：device.read.io的数据：
+{'action': 'device.read.io', 'data': {'function': [{'func_name': 'input_0', 'local_name': 'X0', 'number': 1, 'start_state': 0}, {'func_name': 'input_1', 'local_name': 'X1', 'number': 1, 'start_state': 0}, {'func_name': 'input_2', 'local_name': 'X2', 'number': 1, 'start_state': 0}, {'func_name': 'input_3', 'local_name': 'X3', 'number': 1, 'start_state': 0}, {'func_name': 'input_4', 'local_name': 'X4', 'number': 1, 'start_state': 0}, {'func_name': 'input_5', 'local_name': 'X5', 'number': 1, 'start_state': 0}, {'func_name': 'output_0', 'local_name': 'Y0', 'number': 1, 'start_state': 0}, {'func_name': 'output_1', 'local_name': 'Y1', 'number': 1, 'start_state': 0}, {'func_name': 'output_2', 'local_name': 'Y2', 'number': 1, 'start_state': 0}, {'func_name': 'output_3', 'local_name': 'Y3', 'number': 1, 'start_state': 0}, {'func_name': 'output_4', 'local_name': 'Y4', 'number': 1, 'start_state': 0}, {'func_name': 'output_5', 'local_name': 'Y5', 'number': 1, 'start_state': 0}, {'func_name': 'output_6', 'local_name': 'Y6', 'number': 1, 'start_state': 0}, {'func_name': 'output_7', 'local_name': 'Y7', 'number': 1, 'start_state': 0}, {'func_name': 'red', 'local_name': 'Y8', 'number': 1, 'start_state': 0}, {'func_name': 'green', 'local_name': 'Y9', 'number': 1, 'start_state': 0}, {'func_name': 'yellow', 'local_name': 'Y10', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_0', 'local_name': 'Y11', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_1', 'local_name': 'Y12', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_2', 'local_name': 'Y13', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_3', 'local_name': 'Y14', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_4', 'local_name': 'Y15', 'number': 1, 'start_state': 0}, {'func_name': 'pulse_5', 'local_name': 'Y16', 'number': 1, 'start_state': 0}, {'func_name': 'relayflag', 'local_name': 'Z0', 'number': 1, 'start_state': 0}]}, 'success': True}
+device.read.io返回数据成功。
+step 4、比较第二步和第三步的数据差异：
+两个数据内容存在不一致：[{'add': '/function/11', 'value': {'func_name': 'output_5', 'local_name': 'Y5', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/12', 'value': {'func_name': 'output_6', 'local_name': 'Y6', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/13', 'value': {'func_name': 'output_7', 'local_name': 'Y7', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/14', 'value': {'func_name': 'red', 'local_name': 'Y8', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/15', 'value': {'func_name': 'green', 'local_name': 'Y9', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/16', 'value': {'func_name': 'yellow', 'local_name': 'Y10', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/17', 'value': {'func_name': 'pulse_0', 'local_name': 'Y11', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/18', 'value': {'func_name': 'pulse_1', 'local_name': 'Y12', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/19', 'value': {'func_name': 'pulse_2', 'local_name': 'Y13', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/20', 'value': {'func_name': 'pulse_3', 'local_name': 'Y14', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/21', 'value': {'func_name': 'pulse_4', 'local_name': 'Y15', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/22', 'value': {'func_name': 'pulse_5', 'local_name': 'Y16', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'add': '/function/23', 'value': {'func_name': 'relayflag', 'local_name': 'Z0', 'number': 1, 'start_state': 0}, 'details': 'array-item'}, {'replace': '/function/0/func_name', 'value': 'input_0', 'prev': 'estop'}, {'replace': '/function/1/func_name', 'value': 'input_1', 'prev': 'red'}, {'replace': '/function/1/local_name', 'value': 'X1', 'prev': 'Y0'}, {'replace': '/function/2/func_name', 'value': 'input_2', 'prev': 'green'}, {'replace': '/function/2/local_name', 'value': 'X2', 'prev': 'Y1'}, {'replace': '/function/3/func_name', 'value': 'input_3', 'prev': 'blue'}, {'replace': '/function/3/local_name', 'value': 'X3', 'prev': 'Y2'}, {'replace': '/function/4/func_name', 'value': 'input_4', 'prev': 'relayflag'}, {'replace': '/function/4/local_name', 'value': 'X4', 'prev': 'Z0'}, {'replace': '/function/5/func_name', 'value': 'input_5', 'prev': 'di'}, {'replace': '/function/5/local_name', 'value': 'X5', 'prev': 'Z1'}, {'replace': '/function/6/func_name', 'value': 'output_0', 'prev': 'ad'}, {'replace': '/function/6/local_name', 'value': 'Y0', 'prev': 'Z2'}, {'replace': '/function/7/func_name', 'value': 'output_1', 'prev': 'da'}, {'replace': '/function/7/local_name', 'value': 'Y1', 'prev': 'Z3'}, {'replace': '/function/8/func_name', 'value': 'output_2', 'prev': 'dof'}, {'replace': '/function/8/local_name', 'value': 'Y2', 'prev': 'Z4'}, {'replace': '/function/9/func_name', 'value': 'output_3', 'prev': 'dov'}, {'replace': '/function/9/local_name', 'value': 'Y3', 'prev': 'Z5'}, {'replace': '/function/10/func_name', 'value': 'output_4', 'prev': 'pwm'}, {'replace': '/function/10/local_name', 'value': 'Y4', 'prev': 'Z6'}]
+step 5、列出io功能数据：
+{'func_name': 'input_0', 'local_name': 'X0', 'number': 1, 'start_state': 0}
+{'func_name': 'input_1', 'local_name': 'X1', 'number': 1, 'start_state': 0}
+{'func_name': 'input_2', 'local_name': 'X2', 'number': 1, 'start_state': 0}
+{'func_name': 'input_3', 'local_name': 'X3', 'number': 1, 'start_state': 0}
+{'func_name': 'input_4', 'local_name': 'X4', 'number': 1, 'start_state': 0}
+{'func_name': 'input_5', 'local_name': 'X5', 'number': 1, 'start_state': 0}
+{'func_name': 'output_0', 'local_name': 'Y0', 'number': 1, 'start_state': 0}
+{'func_name': 'output_1', 'local_name': 'Y1', 'number': 1, 'start_state': 0}
+{'func_name': 'output_2', 'local_name': 'Y2', 'number': 1, 'start_state': 0}
+{'func_name': 'output_3', 'local_name': 'Y3', 'number': 1, 'start_state': 0}
+{'func_name': 'output_4', 'local_name': 'Y4', 'number': 1, 'start_state': 0}
+{'func_name': 'output_5', 'local_name': 'Y5', 'number': 1, 'start_state': 0}
+{'func_name': 'output_6', 'local_name': 'Y6', 'number': 1, 'start_state': 0}
+{'func_name': 'output_7', 'local_name': 'Y7', 'number': 1, 'start_state': 0}
+{'func_name': 'red', 'local_name': 'Y8', 'number': 1, 'start_state': 0}
+{'func_name': 'green', 'local_name': 'Y9', 'number': 1, 'start_state': 0}
+{'func_name': 'yellow', 'local_name': 'Y10', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_0', 'local_name': 'Y11', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_1', 'local_name': 'Y12', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_2', 'local_name': 'Y13', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_3', 'local_name': 'Y14', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_4', 'local_name': 'Y15', 'number': 1, 'start_state': 0}
+{'func_name': 'pulse_5', 'local_name': 'Y16', 'number': 1, 'start_state': 0}
+{'func_name': 'relayflag', 'local_name': 'Z0', 'number': 1, 'start_state': 0}
+step 6、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test19_ReadMotion.websocket_request: 18. 读取motion配置信息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',1)">详情</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_read_motion: 18. 读取motion配置信息/18.1. 发送数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        通过</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: 服务：ws://192.168.1.91:9001连接成功!
+step 1、控制设备：
+返回action：device.control的数据：
+{'action': 'device.control', 'data': 'input ipaddr is NULL or ipaddr not exist', 'success': False}
+device.control返回数据失败。
+step 2、读取motion配置文件：
+返回action：device.read.motion的数据：
+{'action': 'device.read.motion', 'data': {'arm_joint': [{'a': 250.0, 'alpha': 0.0, 'coupling_relationship': [[4, 10.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 25.0, 'max_dec': 23.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 3.14, 'soft_limit_l': -2.6, 'theta': 0.0}, {'a': 150.0, 'alpha': 0.0, 'coupling_relationship': [[1, -2.0]], 'd': 0.0, 'emergency_dec': 100.0, 'max_acc': 60.0, 'max_dec': 57.0, 'max_jerk': 500.0, 'max_vel': 5.8, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 2.2, 'soft_limit_l': -2.2, 'theta': 0.0}, {'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[4, -2.0]], 'd': 0.0, 'emergency_dec': 20000.0, 'max_acc': 13000.0, 'max_dec': 10000.0, 'max_jerk': 50000.0, 'max_vel': 750.0, 'reduce_rate': 1000.0, 'rotation_joint': False, 'soft_limit_h': 10.0, 'soft_limit_l': -150.0, 'theta': 0.0}, {'a': 0.0, 'alpha': 0.0, 'coupling_relationship': [[0, 0.0]], 'd': 0.0, 'emergency_dec': 300.0, 'max_acc': 210.0, 'max_dec': 200.0, 'max_jerk': 1000.0, 'max_vel': 9.2, 'reduce_rate': 1000.0, 'rotation_joint': True, 'soft_limit_h': 6.28, 'soft_limit_l': -6.28, 'theta': 0.0}], 'cart_rotate': {'emergency_dec': 200.0, 'max_acc': 210.0, 'max_dec': 200.0, 'max_jerk': 1000.0, 'max_vel': 9.2}, 'cart_translate': {'emergency_dec': 15000.0, 'max_acc': 10000.0, 'max_dec': 10000.0, 'max_jerk': 50000.0, 'max_vel': 2000.0}, 'end_effector': {'p': [0.0, 0.0, 0.0], 'rpy': [0.0, 0.0, 0.0]}, 'ext_joint': [], 'interpolation_frequency': 500.0, 'robot_type': 0}, 'success': True}
+device.read.motion返回数据成功。
+step 3、释放设备：
+返回action：device.release的数据：
+{'action': 'device.release', 'data': 'device has been released', 'success': True}
+device.release返回数据成功。
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>总计</td>
+    <td>19</td>
+    <td>19</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</div>
+</body>
+</html>
