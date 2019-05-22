@@ -8,33 +8,29 @@
 -- 关节坐标
 pose_x=250
 length=17.67766953
-b=math.rad(a)
-vel=50;
-blend=0;
+vel=100;
+blend=30;
 
-pose1={["x"] = pose_x, ["y"] =-150, ["z"] = -100,["a"] = 0,["b"] = 0,["c"] = b}
-posem1={["x"] = pose_x, ["y"] =-125-length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] = b}
+pose1={["x"] = pose_x, ["y"] =-150, ["z"] = -100,["a"] = 0,["b"] = 0,["c"] = 0}
+posem1={["x"] = pose_x, ["y"] =-125-length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] = 0}
 pose2={["x"] = pose_x, ["y"] =-150+25, ["z"] = -75,["a"] = 0,["b"] = 0,["c"] = 0}
-pose3={["x"] = pose_x, ["y"] =150-25, ["z"] = -75,["a"] = 0,["b"] = 0,["c"] = b}
-posem2={["x"] = pose_x, ["y"] =125+length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] = b}
-pose4={["x"] = pose_x, ["y"] =150, ["z"] = -100,["a"] = 0,["b"] = 0,["c"] = math.pi/30}
+pose3={["x"] = pose_x, ["y"] =150-25, ["z"] = -75,["a"] = 0,["b"] = 0,["c"] = 0}
+posem2={["x"] = pose_x, ["y"] =125+length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] = 0}
+pose4={["x"] = pose_x, ["y"] =150, ["z"] = -100,["a"] = 0,["b"] = 0,["c"] = 0}
 poset1={["x"] = pose_x, ["y"] =-50, ["z"] = -100,["a"] = 0,["b"] = 0,["c"] = 0}
-poset2={["x"] = pose_x, ["y"] =-50+length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] =b}
-poset3={["x"] = pose_x+0.001, ["y"] =0, ["z"] = -75,["a"] = 0,["b"] = 0,["c"] =b}
+poset2={["x"] = pose_x, ["y"] =-50+length, ["z"] = -100+length,["a"] = 0,["b"] = 0,["c"] = 0}
+poset3={["x"] = pose_x+0.001, ["y"] =0, ["z"] = -75,["a"] = 0,["b"] = 0,["c"] = 0}
 
 posit1={["j1"]=1,["j2"]=-1,["j3"]=0,["j4"]=0,["j5"]=0,["j6"]=0}
 robot.move_p2p_posit(posit1,vel,blend)
 robot.move_line_pose(pose1,vel,blend)
 while(1)
 do
-for a=0,360,1 do
 	robot.move_arc_pose(posem1,pose2,vel,blend)
 	robot.move_line_pose(pose3,vel,blend)
 	robot.move_arc_pose(posem2,pose4,vel,blend)
-
+	print("hello")
 	robot.move_arc_pose(posem2,pose3,vel,blend)
 	robot.move_line_pose(pose2,vel,blend)
 	robot.move_arc_pose(posem1,pose1,vel,blend)
-
-	end
 end

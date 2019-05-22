@@ -17,15 +17,16 @@ import json
 
 class install(unittest.TestCase):
     """安装脚本文件"""
-    filename="arc.lua"
-    path='../scripts/arc.lua'
+    filename="large3.lua"
+    path='../scripts/large1.lua'
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
         port=rt.get_port()
         url=web+":"+port
         try:
-            self.ws=create_connection(url,timeout=5)    #建立设备连接
+            # self.ws=create_connection(url,timeout=5)
+            self.ws=create_connection(url)    #建立设备连接
             if self.ws.connected:
                 print("服务：%s连接成功!"%url)
         except Exception as e:

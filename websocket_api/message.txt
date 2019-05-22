@@ -472,3 +472,25 @@ read_motion={
     "action":"device.read.motion",
     "data":""
     }
+[29]
+set_breakPoint={
+    "action":"device.set.breakPoint",
+    "data":[
+        10,
+        20
+    ]
+    }
+[30]
+clean_breakPoint={
+    "action":"device.clean.breakPoint",
+    "data":{
+
+    }
+    }
+[31]
+query_position={
+    "action":"device.query.position",
+    "data":{
+
+    }
+    }
