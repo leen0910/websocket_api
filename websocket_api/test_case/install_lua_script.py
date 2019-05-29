@@ -9,6 +9,7 @@ from common import read_info
 from common import read_message
 from common import check_action as c
 from common import Base_64
+from common import split_read as s
 import time
 import json
 
@@ -17,8 +18,8 @@ import json
 
 class install(unittest.TestCase):
     """安装脚本文件"""
-    filename="large3.lua"
-    path='../scripts/large1.lua'
+    filename="ln3.lua"
+    path='../scripts/move.lua'
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -45,23 +46,51 @@ class install(unittest.TestCase):
         time.sleep(1)
 
         print("step 2、向设备写入脚本：")
-        f=open(path,'r',encoding='utf-8')
-        str=f.read()
-        script_base64=Base_64.encode(str)
-        f.close()
-        data_file={
-            "action":"device.file.receive",
-            "data":{
-                "type":"script",
-                "file_name":filename,
-                "md5":"",
-                "total":1,
-                "index":1,
-                "content":script_base64
+
+        # """一个总包直接传输文件"""
+        # f=open(path,'r',encoding='utf-8')
+        # str=f.read()
+        # script_base64=Base_64.encode(str)
+        # f.close()
+        # data_file={
+        #     "action":"device.file.receive",
+        #     "data":{
+        #         "type":"script",
+        #         "file_name":filename,
+        #         "md5":"",
+        #         "total":1,
+        #         "index":1,
+        #         "content":script_base64
+        #         }
+        #     }
+        # data_file=json.dumps(data_file)
+        # c.checkAction(url,data_file)
+
+
+        """分包写入文件"""
+        Block_Size=300*1024
+        total=s.total_count(path,Block_Size)
+        print(total)
+        index=1
+        for content in s.read_file(path,Block_Size):
+            str=content
+            script_base64=Base_64.encode(str)
+            data_file={
+                "action":"device.file.receive",
+                "data":{
+                    "type":"script",
+                    "file_name":filename,
+                    "md5":"",
+                    "total":total,
+                    "index":index,
+                    "content":script_base64
+                    }
                 }
-            }
-        data_file=json.dumps(data_file)
-        c.checkAction(url,data_file)
+            data_file=json.dumps(data_file)
+            c.checkAction(url,data_file)
+            index=index+1
+            print(script_base64)
+
 
     #     data_initialize=rm.get_data("3","initialize")
     #     print("step 3、初始化：")

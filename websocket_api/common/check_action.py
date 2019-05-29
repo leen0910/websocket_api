@@ -14,7 +14,7 @@ def checkAction(ws,data):
             if t["action"]==action:
                 print("返回action：%s的数据："%action)
                 print(t)
-                if t["success"]==bool(1):
+                if t["success"]==True:
                     print("%s返回数据成功。"%action)
                 else:
                     print("%s返回数据失败。"%action)

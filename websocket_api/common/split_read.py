@@ -10,7 +10,6 @@ def total_count(fpath,Block_Size):
             total=All_Size//Block_Size+1
         else:
             total=All_Size//Block_Size
-        f.close()
         return total
 
 
@@ -22,16 +21,15 @@ def read_file(fpath,Block_Size):
                 yield block
             else:
                 return
-    f.close()
 
-fpath='../scripts/move.lua'
-Block_Size =30
-print(total_count(fpath,Block_Size))
-count=0
-for i in read_file(fpath,Block_Size):
-    print(i)
-    count=count+1
-
-print(count)
+# fpath='../scripts/move.lua'
+# Block_Size =1024
+# print(total_count(fpath,Block_Size))
+# count=0
+# for i in read_file(fpath,Block_Size):
+#     print(i)
+#     count=count+1
+#
+# print(count)
 
 

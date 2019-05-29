@@ -52,6 +52,7 @@ class websocket_request(unittest.TestCase):
         a=data_write_motion["data"]
         b=t["data"]
         d.jsonDiff(a,b)
+        # d.json_diff(a,b)
 
 
         print("step 5、列出io功能数据：")
