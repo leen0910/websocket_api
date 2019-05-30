@@ -13,4 +13,4 @@ print(M2)
 robot.set_delay_sec(3)
 M2=0
 robot.set_delay_sec(3)
-Z0=0
+Z0=1

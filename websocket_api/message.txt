@@ -234,21 +234,21 @@ write_modbus={
                 "count":-1,
                 "enable":true,
                 "index":1,
-                "ip":"192.168.1.20",
-                "port":500
+                "ip":"192.168.1.5",
+                "port":502
             },
             {
                 "count":-1,
                 "enable":true,
                 "index":2,
-                "ip":"192.168.1.111",
+                "ip":"192.168.1.81",
                 "port":1502
             },
             {
                 "count":-1,
-                "enable":false,
+                "enable":true,
                 "index":3,
-                "ip":"192.168.1.100",
+                "ip":"192.168.1.234",
                 "port":1502
             },
             {
@@ -410,7 +410,6 @@ write_io1={
 write_io={
     "action":"device.write.io",
     "data":{
-       {
     "function":[
         {
             "local_name":"Y0",
@@ -439,7 +438,6 @@ write_io={
     ]
     }
     }
-    }
 [18]
 read_motion={
     "action":"device.read.motion",
@@ -465,5 +463,13 @@ query_position={
     "action":"device.query.position",
     "data":{
 
+    }
+    }
+[32]
+install_script={
+    "action":"device.install.script",
+    "data":{
+        "index":1,
+        "name":"test.lua"
     }
     }

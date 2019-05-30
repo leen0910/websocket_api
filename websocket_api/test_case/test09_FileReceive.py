@@ -39,24 +39,24 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_file_receive)
         time.sleep(2)
 
-        data_initialize=rm.get_data("3","initialize")
-        print("step 3、初始化：")
-        c.checkAction(url,data_initialize)
-        time.sleep(8)
+        # data_initialize=rm.get_data("3","initialize")
+        # print("step 3、初始化：")
+        # c.checkAction(url,data_initialize)
+        # time.sleep(8)
 
         # data_mode=rm.get_data("4","move_mode_script")
         # print("step 4、切换为脚本mode：")
         # c.checkAction(url,data_mode)
         # time.sleep(1)
 
-        data_script_start=rm.get_data("1","run_script_start_test")
-        print("step 5、运行step 2写入的脚本：test.lua：")
-        c.checkAction(url,data_script_start)
-        time.sleep(5)
-
-        data_script_stop=rm.get_data("1","run_script_stop")
-        print("step 6、停止脚本运行：")
-        c.checkAction(url,data_script_stop)
+        # data_script_start=rm.get_data("1","run_script_start_test")  # 脚本增加安装脚本步骤
+        # print("step 5、运行step 2写入的脚本：test.lua：")
+        # c.checkAction(url,data_script_start)
+        # time.sleep(5)
+        #
+        # data_script_stop=rm.get_data("1","run_script_stop")
+        # print("step 6、停止脚本运行：")
+        # c.checkAction(url,data_script_stop)
 
         data_r=rm.get_data("6","release")
         print("step 7、释放设备：")

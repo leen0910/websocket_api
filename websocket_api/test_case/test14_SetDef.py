@@ -8,7 +8,7 @@ from common import check_action as c
 import time
 
 class websocket_request(unittest.TestCase):
-    """17. 读取lua配置信息"""
+    """25. 设置默认脚本"""
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -22,8 +22,8 @@ class websocket_request(unittest.TestCase):
             print("websocket连接失败：%s"%e)
             pass
 
-    def test_read_lua(self):
-        """17. 读取lua配置信息/17.1. 发送数据 """
+    def test_set_def(self):
+        """25. 设置默认脚本/25.1. 发送数据 """
         rm=read_message.ReadMessage()
         data_c=rm.get_data("5","control")
         url=self.ws
@@ -31,17 +31,25 @@ class websocket_request(unittest.TestCase):
         c.checkAction(url,data_c)
         time.sleep(1)
 
-        data_read_lua=rm.get_data("17","read_lua")
-        print("step 2、读取lua配置信息：")
-        t=c.checkAction(url,data_read_lua)
+        data_set_def=rm.get_data("25","set_defScript")
+        print("step 2、设置“move.lua”为默认脚本：")
+        c.checkAction(url,data_set_def)
+        time.sleep(1)
+
+        data_def_script=rm.get_data("17","read_lua")
+        print("step 3、读取lua配置信息查询move.lua是否被设置为默认脚本：")
+        t=c.checkAction(url,data_def_script)
         time.sleep(1)
         lenth=len(t["data"]["file"])
-        print("显示lua配置信息列：")
         for i in range(0,lenth):
-            print(t["data"]["file"][i])
+            if t["data"]["file"]["%s"%i]["name"]=="move.lua":
+                if t["data"]["file"]["%s"%i]["def_script"]==True:
+                    print("“move.lua”成功设置为默认脚本：%s"%t["data"]["file"]["%s"%i])
+                else:
+                    print("“move.lua”设置默认脚本错误：%s"%t["data"]["file"]["%s"%i])
 
         data_r=rm.get_data("6","release")
-        print("step 3、释放设备：")
+        print("step 4、释放设备：")
         c.checkAction(url,data_r)
 
 
