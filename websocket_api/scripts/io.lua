@@ -1,16 +1,5 @@
+robot.set_delay_sec(3)
+T23200=12.53
+print(T23200)
+robot.set_delay_sec(1)
 
-robot.set_delay_sec(3)
-M0=0
-print(M0)
-robot.set_delay_sec(3)
-M1=1
-print(M1)
-robot.set_delay_sec(3)
-M1=0
-robot.set_delay_sec(3)
-M2=1
-print(M2)
-robot.set_delay_sec(3)
-M2=0
-robot.set_delay_sec(3)
-Z0=1

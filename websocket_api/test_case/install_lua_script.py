@@ -18,7 +18,7 @@ import json
 
 class install(unittest.TestCase):
     """安装脚本文件"""
-    filename="move1.lua"
+    filename="move.lua"
     path='../scripts/move.lua'
     def setUp(self):
         rt=read_info.ReadInfo()
@@ -96,7 +96,7 @@ class install(unittest.TestCase):
 
         """重新设置安装文件名"""
         data_dict=json.loads(data_install_script)
-        data_dict["data"]["index"]=2
+        data_dict["data"]["index"]=10
         data_dict["data"]["name"]="%s"%filename
         print("安装脚本："+data_dict["data"]["name"])
         data_install_script=json.dumps(data_dict)
