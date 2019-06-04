@@ -42,11 +42,11 @@ class websocket_request(unittest.TestCase):
         time.sleep(1)
         lenth=len(t["data"]["file"])
         for i in range(0,lenth):
-            if t["data"]["file"]["%s"%i]["name"]=="move.lua":
-                if t["data"]["file"]["%s"%i]["count"]==0:
-                    print("“move.lua”的运行次数成功被清零：%s"%t["data"]["file"]["%s"%i])
+            if t["data"]["file"][i]["name"]=="move.lua":
+                if t["data"]["file"][i]["count"]==0:
+                    print("“move.lua”的运行次数成功被清零：%s"%t["data"]["file"][i])
                 else:
-                    print("“move.lua”的运行次数清除失败：%s"%t["data"]["file"]["%s"%i])
+                    print("“move.lua”的运行次数清除失败：%s"%t["data"]["file"][i])
 
         data_r=rm.get_data("6","release")
         print("step 4、释放设备：")

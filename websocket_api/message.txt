@@ -414,26 +414,22 @@ write_io={
         {
             "local_name":"Y0",
             "number":1,
-            "func_name":"red",
-            "start_state":0
+            "func_name":"red"
         },
         {
             "local_name":"Y1",
             "number":1,
-            "func_name":"green",
-            "start_state":0
+            "func_name":"green"
         },
         {
             "local_name":"Y2",
             "number":1,
-            "func_name":"yellow",
-            "start_state":0
+            "func_name":"yellow"
         },
         {
             "local_name":"Z0",
             "number":1,
-            "func_name":"relayflag",
-            "start_state":0
+            "func_name":"relayflag"
         }
     ]
     }

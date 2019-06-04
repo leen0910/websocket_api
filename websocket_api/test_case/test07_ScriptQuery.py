@@ -44,7 +44,8 @@ class websocket_request(unittest.TestCase):
         if lenth != 0:
             print("列出已安装脚本名称：")
             for i in range(0,lenth):
-                print(t["data"]["%s"%i])
+                if t["data"][i]["name"]!="":
+                    print(t["data"][i])
         else:
             print("查询已安装脚本为空！")
 

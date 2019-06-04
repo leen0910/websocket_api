@@ -38,7 +38,8 @@ class websocket_request(unittest.TestCase):
         lenth=len(t["data"]["file"])
         print("显示lua配置信息列：")
         for i in range(0,lenth):
-            print(t["data"]["file"]["%s"%i])
+            if t["data"]["file"][i]["name"]!="":
+                print(t["data"]["file"][i])
 
         data_r=rm.get_data("6","release")
         print("step 3、释放设备：")

@@ -40,13 +40,20 @@ class websocket_request(unittest.TestCase):
         print("step 3、读取lua配置信息查询move.lua是否被设置为默认脚本：")
         t=c.checkAction(url,data_def_script)
         time.sleep(1)
-        lenth=len(t["data"]["file"])
-        for i in range(0,lenth):
-            if t["data"]["file"]["%s"%i]["name"]=="move.lua":
-                if t["data"]["file"]["%s"%i]["def_script"]==True:
-                    print("“move.lua”成功设置为默认脚本：%s"%t["data"]["file"]["%s"%i])
-                else:
-                    print("“move.lua”设置默认脚本错误：%s"%t["data"]["file"]["%s"%i])
+        # lenth=len(t["data"]["file"])
+        index=t["data"]["def_script"]
+        if t["data"]["file"][index]["name"]=="move.lua":
+            print("“move.lua”成功设置为默认脚本：%s"%t["data"]["file"][index])
+        else:
+            print("“move.lua”设置默认脚本错误：%s"%t["data"]["file"][index])
+
+
+        # for i in range(0,lenth):
+        #     if t["data"]["file"][i]["name"]=="move.lua":
+        #         if t["data"]["file"][i]["def_script"]==True:
+        #             print("“move.lua”成功设置为默认脚本：%s"%t["data"]["file"][i])
+        #         else:
+        #             print("“move.lua”设置默认脚本错误：%s"%t["data"]["file"][i])
 
         data_r=rm.get_data("6","release")
         print("step 4、释放设备：")

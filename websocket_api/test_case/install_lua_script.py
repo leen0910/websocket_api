@@ -20,6 +20,7 @@ class install(unittest.TestCase):
     """安装脚本文件"""
     filename="move.lua"
     path='../scripts/move.lua'
+    index=3
     def setUp(self):
         rt=read_info.ReadInfo()
         web=rt.get_device_ip()
@@ -96,7 +97,7 @@ class install(unittest.TestCase):
 
         """重新设置安装文件名"""
         data_dict=json.loads(data_install_script)
-        data_dict["data"]["index"]=10
+        data_dict["data"]["index"]=self.index
         data_dict["data"]["name"]="%s"%filename
         print("安装脚本："+data_dict["data"]["name"])
         data_install_script=json.dumps(data_dict)
